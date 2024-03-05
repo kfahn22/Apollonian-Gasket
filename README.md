@@ -36,8 +36,8 @@ The python and circle inversion code sets actual pixels, so it can't be adapted 
     </tr>
 <tr>
       <td align="center"><a href=""> <img class="img" src="assets/clocks.jpg" alt="Apollonian gasket with clocks" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with clocks</b></sub></a></td>
-      <td align="center"><a href=""> <img class="img" src="assets/apollonian-3d.jpg" alt="Apollonian gasket with spheres" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with spheres</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/apollonian-4circles.png" alt="Apollonian gasket with 4 initial circles" style=" display: block;
+      <td align="center"><a href=""> <img class="img" src="assets/apollonian-3d.jpg" alt="Circle Inversion with spheres" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with spheres</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/apollonian-4circles.png" alt="Circle inversion with 4 initial circles" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Apollonian gasket with 4 initial circles</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="" alt="" style=" display: block;
