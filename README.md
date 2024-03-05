@@ -1,10 +1,8 @@
 # Apollonian-Gasket
 
-Code to render the Apollonian gasket
+This repo contains code to render the Apollonian gasket.
 
-# Genuary_2024
-
-[Genuary 2024](https://genuary.art)
+The code for most of the versions is from Daniel Shiffman -- Apollonian Coding Challenge coming soon!
 
 ## 🌄 Gallery
 
