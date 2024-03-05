@@ -4,6 +4,7 @@ let epsilon = 0.01;
 
 function setup() {
   createCanvas(600, 600);
+  angleMode(DEGREES);
   let c1 = new Circle(-1 / (width / 2), width / 2, height / 2);
   let r2 = random(100, c1.radius / 2);
   let v = p5.Vector.fromAngle(random(360));
@@ -18,8 +19,7 @@ function setup() {
 }
 
 function draw() {
-  background(0);
-  //background(5,5,32);
+  background("#FCEE21");
   let len1 = allCircles.length;
   nextGeneration();
   let len2 = allCircles.length;
@@ -27,16 +27,13 @@ function draw() {
     console.log("done");
     noLoop();
   }
-
+  // Draw first circle
+  stroke("#70327E");
+  strokeWeight(2);
   allCircles[0].showCircle();
+
   for (let i = 1; i < allCircles.length; i++) {
-    //allCircles[i].showClock();
-    //allCircles[i].showFlower();
-    //allCircles[i].showGear();
-    allCircles[i].showPhyllotaxis();
-    //allCircles[i].showPolygon();
-    //allCircles[i].showPentagons();
-    //allCircles[i].showTriangles();
+    allCircles[i].showGear();
   }
 }
 

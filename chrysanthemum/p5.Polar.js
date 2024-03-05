@@ -51,20 +51,22 @@ p5.prototype.hyperbolicTan = function (_theta) {
   return (l - 1) / (l + 1);
 };
 
-// Flower
+// Chrysanthmum Flower
+// https://paulbourke.net/geometry/chrysanthemum/
 p5.prototype.polarFlower = function (_angle, _radius, _distance) {
   this.push();
+  angleMode(RADIANS);
   //this.shiftRotate(_angle, _distance);
   this.beginShape();
-  // 7560 when angle mode radians
-  for (let i = 0; i < 2880; i += 2) {
+  // 7560 when angle mode radians i+=2
+  for (let i = 0; i < 21 * PI; i += 0.01) {
     let r =
-      5 * (1 + sin(((11 * i) / 5) * 360)) -
-      4 * pow(sin(((17 * i) / 3) * 360), 4) +
+      5 * (1 + sin((11 * i) / 5)) -
+      4 * pow(sin((17 * i) / 3), 4) +
       pow(sin(2 * cos(3 * i) - 28 * i), 8);
     this.vertex(
-      this.cos((this.TWO_PI * i) / 360) * r * _radius * 0.05,
-      -this.sin((this.TWO_PI * i) / 360) * r * _radius * 0.05
+      this.cos(i) * r * _radius * 0.04,
+      -this.sin(i) * r * _radius * 0.04
     );
   }
   this.endShape(this.CLOSE);
@@ -162,7 +164,7 @@ p5.prototype.polarGear = function (_angle, _radius, _distance) {
   this.push();
   //this.shiftRotate(_angle, _distance);
   this.beginShape();
-  for (let i = 0; i <= 361; i++) {
+  for (let i = 0; i <= 360; i++) {
     let r = 1 + (1 / 10) * this.hyperbolicTan(10 * sin(i));
     this.vertex(
       this.cos((this.TWO_PI * i) / 360) * r * _radius * 0.45,

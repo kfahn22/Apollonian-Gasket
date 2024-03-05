@@ -156,17 +156,33 @@ p5.prototype.phyllotaxis = function (_angle, _radius, _distance) {
   //start += 0.1;
   this.pop();
 };
+// Gear
+// p5.prototype.polarGear = function (_angle, _radius, _distance) {
+//   this.push();
+//   //angleMode(DEGREES);
+//   //this.shiftRotate(_angle, _distance);
+//   this.beginShape();
+//   for (let i = 0; i <= 360; i++) {
+//     let r = 1 + (1 / 10) * this.hyperbolicTan(10 * sin(i));
+//     this.vertex(
+//       this.cos((TWO_PI * i) / 360) * r * _radius * 0.42,
+//       this.sin((TWO_PI * i) / 360) * r * _radius * 0.42
+//     );
+//   }
+//   this.endShape(this.CLOSE);
+//   this.pop();
+// };
 
 // Gear
 p5.prototype.polarGear = function (_angle, _radius, _distance) {
   this.push();
   //this.shiftRotate(_angle, _distance);
   this.beginShape();
-  for (let i = 0; i <= 361; i++) {
-    let r = 1 + (1 / 10) * this.hyperbolicTan(10 * sin(i));
+  for (let i = 0; i <= 360; i += 1) {
+    let r = 1 + (1 / 10) * hyperbolicTan(10 * sin(10 * i));
     this.vertex(
-      this.cos((this.TWO_PI * i) / 360) * r * _radius * 0.45,
-      this.sin((this.TWO_PI * i) / 360) * r * _radius * 0.45
+      this.cos(i) * r * _radius * 0.43,
+      this.sin(i) * r * _radius * 0.43
     );
   }
   this.endShape(this.CLOSE);

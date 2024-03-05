@@ -45,6 +45,16 @@ The python and circle inversion code sets actual pixels, so it can't be adapted 
     margin-right: auto;" width="500" /><br /><sub><b><br/>Apollonian gasket with polygons</b></sub></a></td>
     </tr>
 
+<tr>
+      <td align="center"><a href=""> <img class="img" src="assets/apollonian-chrysanthemum.jpg" alt="Apollonian gasket with flowers" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with flowers</b></sub></a></td>
+      <td align="center"><a href=""> <img class="img" src="assets/apollonian-butterfly.jpg" alt="Apollonian gasket with butterflies" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with butterflies</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="" alt="Apollonian gasket with gears" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="500" /><br /><sub><b><br/>Apollonian gasket with gears</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="" alt="" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="500" /><br /><sub><b><br/></b></sub></a></td>
+    </tr>
  </tbody>
 </table>
 

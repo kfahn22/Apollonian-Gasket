@@ -6,7 +6,7 @@ function setup() {
   createCanvas(600, 600);
   let c1 = new Circle(-1 / (width / 2), width / 2, height / 2);
   let r2 = random(100, c1.radius / 2);
-  let v = p5.Vector.fromAngle(random(360));
+  let v = p5.Vector.fromAngle(random(TWO_PI));
   v.setMag(c1.radius - r2);
   let c2 = new Circle(1 / r2, width / 2 + v.x, height / 2 + v.y);
   let r3 = v.mag();
@@ -32,8 +32,9 @@ function draw() {
   for (let i = 1; i < allCircles.length; i++) {
     //allCircles[i].showClock();
     //allCircles[i].showFlower();
+    allCircles[i].showButterfly();
     //allCircles[i].showGear();
-    allCircles[i].showPhyllotaxis();
+    //allCircles[i].showPhyllotaxis();
     //allCircles[i].showPolygon();
     //allCircles[i].showPentagons();
     //allCircles[i].showTriangles();

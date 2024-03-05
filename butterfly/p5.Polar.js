@@ -51,38 +51,19 @@ p5.prototype.hyperbolicTan = function (_theta) {
   return (l - 1) / (l + 1);
 };
 
-// Flower
-p5.prototype.polarFlower = function (_angle, _radius, _distance) {
-  this.push();
-  //this.shiftRotate(_angle, _distance);
-  this.beginShape();
-  // 7560 when angle mode radians
-  for (let i = 0; i < 2880; i += 2) {
-    let r =
-      5 * (1 + sin(((11 * i) / 5) * 360)) -
-      4 * pow(sin(((17 * i) / 3) * 360), 4) +
-      pow(sin(2 * cos(3 * i) - 28 * i), 8);
-    this.vertex(
-      this.cos((this.TWO_PI * i) / 360) * r * _radius * 0.05,
-      -this.sin((this.TWO_PI * i) / 360) * r * _radius * 0.05
-    );
-  }
-  this.endShape(this.CLOSE);
-  this.pop();
-};
-
 // Butterfly
 p5.prototype.polarButterfly = function (_angle, _radius, _distance) {
   const e = 2.71828;
   this.push();
+  angleMode(RADIANS);
   //this.shiftRotate(_angle, _distance);
   this.beginShape();
   // 7560 when angle mode radians
-  for (let i = 0; i < 1440; i += 10 / this.TWO_PI) {
+  for (let i = 0; i < 8*PI; i += 0.01) {
     let r = pow(e, sin(i)) - 2 * cos(4 * i) + pow(sin((2 * i - PI) / 24), 5);
     this.vertex(
-      this.cos((this.TWO_PI * i) / 360) * r * _radius * 0.1,
-      -this.sin((this.TWO_PI * i) / 360) * r * _radius * 0.1
+      this.cos(i) * r * _radius * 0.09,
+      -this.sin(i) * r * _radius * 0.09
     );
   }
   this.endShape(this.CLOSE);
@@ -162,7 +143,7 @@ p5.prototype.polarGear = function (_angle, _radius, _distance) {
   this.push();
   //this.shiftRotate(_angle, _distance);
   this.beginShape();
-  for (let i = 0; i <= 361; i++) {
+  for (let i = 0; i <= 360; i++) {
     let r = 1 + (1 / 10) * this.hyperbolicTan(10 * sin(i));
     this.vertex(
       this.cos((this.TWO_PI * i) / 360) * r * _radius * 0.45,
