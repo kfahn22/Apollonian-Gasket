@@ -29,7 +29,7 @@ The cool thing about this theorem is that it applies not just to three circles b
 
 The [code](https://editor.p5js.org/codingtrain/sketches/zrq8KHXnO) for most of the versions is from [Daniel Shiffman](https://thecodingtrain.com) -- Apollonian Coding Challenge coming soon!
 
-The code for the nested version is from Richard Bourne (I have updated the syntax a little bit.)The python and circle inversion code sets actual pixels, so it can't be adapted like Daniel's code. The python code is from user [FB36](https://code.activestate.com/recipes/users/4172570/) posted in ActiveStateCode. I obtained the circle inversion code by posting the python code in ChatGPT3.5 and asking it to port to p5.js. It did a pretty decent job--I only had to modify the loop slightly.
+The code for the nested version is from [Richard Bourne](https://openprocessing.org/user/162823?view=sketches&o=48) (I have updated the syntax a little bit.) The python and circle inversion code sets actual pixels, so it can't be adapted like Daniel's code. The python code is from user [FB36](https://code.activestate.com/recipes/users/4172570/) posted in ActiveStateCode. I obtained the circle inversion code by posting the python code in ChatGPT3.5 and asking it to port to p5.js. It did a pretty decent job--I only had to modify the loop slightly.
 
 ## 🌄 Gallery
 
@@ -51,9 +51,9 @@ The code for the nested version is from Richard Bourne (I have updated the synta
 <tr>
       <td align="center"><a href=""> <img class="img" src="assets/clocks.jpg" alt="Apollonian gasket with clocks" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with clocks</b></sub></a></td>
       <td align="center"><a href=""> <img class="img" src="assets/apollonian-3d.jpg" alt="Circle Inversion with spheres" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with spheres</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/apollonian-4circles.png" alt="Circle inversion with 4 initial circles" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="assets/apollonian-gears.jpg" alt="Apollonian gasket with gears" style=" display: block;
     margin-left: auto;
-    margin-right: auto;" width="500" /><br /><sub><b><br/>Apollonian gasket with 4 initial circles</b></sub></a></td>
+    margin-right: auto;" width="500" /><br /><sub><b><br/>Apollonian gasket with gears</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/apollonian-polygon.jpg" alt="Apollonian gasket with polygons" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Apollonian gasket with polygons</b></sub></a></td>
@@ -62,9 +62,9 @@ The code for the nested version is from Richard Bourne (I have updated the synta
 <tr>
       <td align="center"><a href=""> <img class="img" src="assets/apollonian-chrysanthemum.jpg" alt="Apollonian gasket with flowers" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with flowers</b></sub></a></td>
       <td align="center"><a href=""> <img class="img" src="assets/apollonian-butterfly.jpg" alt="Apollonian gasket with butterflies" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with butterflies</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/apollonian-gears.jpg" alt="Apollonian gasket with gears" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="assets/apollonian-4circles.png" alt="Circle inversion with 4 initial circles" style=" display: block;
     margin-left: auto;
-    margin-right: auto;" width="500" /><br /><sub><b><br/>Apollonian gasket with gears</b></sub></a></td>
+    margin-right: auto;" width="500" /><br /><sub><b><br/>Apollonian gasket with 4 initial circles</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/nested.jpg" alt="Nested Apollonian gasket" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Nested Apollonian gasket</b></sub></a></td>
@@ -93,4 +93,4 @@ The code for the nested version is from Richard Bourne (I have updated the synta
 Processing code examples
 https://openprocessing.org/browse/?time=anytime&type=all&q=apollonian#
 https://openprocessing.org/sketch/1878906
-Processing 
+Processing
