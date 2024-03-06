@@ -1,6 +1,7 @@
 let allCircles = [];
 let queue = [];
 let epsilon = 0.01;
+let angle = 0;
 
 function setup() {
   createCanvas(600, 600);
@@ -33,8 +34,9 @@ function draw() {
   allCircles[0].showCircle();
 
   for (let i = 1; i < allCircles.length; i++) {
-    allCircles[i].showGear();
+    allCircles[i].showGear(angle);
   }
+  angle += 1;
 }
 
 function mousePressed() {

@@ -1,8 +1,21 @@
 # Apollonian-Gasket
 
+“The Kiss Precise” by Frederick Soddy
+
+Four circles to the kissing come
+The smaller are the benter.
+The bend is just the inverse of
+The distance from the center.
+Though their intrigue left Euclid dumb,
+There’s now no need for rule of thumb.
+Since zero bend’s a dead straight line,
+And concave bends have minus sign,
+The sum of the squares of all four bends
+Is half the square of their sum.
+
 This repo contains code to render the Apollonian gasket. The Apollonian gasket is a special kind of circle packing where you start with a big circle and then fit smaller circles inside it, each touching the big circle and each other.
 
-Descartes' theorem, named after the famous philosopher and mathematician René Descartes, is a mathematical formula that helps us understand the relationships between circles when they're packed together like in the Apollonian gasket.
+Descartes' formula is a mathematical formula that helps us understand the relationships between circles when they're packed together like in the Apollonian gasket.
 
 Here's the idea: for any three circles that are mutually tangent (meaning they touch each other externally), there's a neat formula that relates the curvatures (or how "bendy" they are) of these circles. The formula is:
 \((k_1 + k_2 + k_3)^2 = 2(k_1^2 + k_2^2 + k_3^2)\)
@@ -64,3 +77,19 @@ The python and circle inversion code sets actual pixels, so it can't be adapted 
 <!-- IMAGE-LIST:END -->
 
 ![gif](assets/GIF_apollonian.gif)
+
+## References
+
+- [Single Line Apollonian Gaskets:
+  Is The Limit a Space Filling Fractal Curve?](https://arxiv.org/pdf/2204.05729.pdf)
+- [Single Line Apollonian Gaskets for Fashion](https://archive.bridgesmathart.org/2022/bridges2022-119.pdf)
+- [Soddy Circles](https://mathworld.wolfram.com/SoddyCircles.html)
+- [Apollonian Gasket](http://www.malinc.se/math/geometry/apolloniangasketen.php)
+- [A Tisket, a Tasket, an Apollonian Gasket](https://www.americanscientist.org/article/a-tisket-a-tasket-an-apollonian-gasket)
+- [A Visual Solution to the Apollonian Problem](http://laelcosta.com/demo3.js)
+- [Apollonian circle packings: Dynamics and Number theory](https://users.math.yale.edu/~ho2/doc/Oh_ICWM.pdf)
+
+Processing code examples
+https://openprocessing.org/browse/?time=anytime&type=all&q=apollonian#
+https://openprocessing.org/sketch/1878906
+Processing 

@@ -42,7 +42,7 @@ class Circle {
     circle(this.center.a, this.center.b, this.radius * 2);
   }
 
-  showGear() {
+  showGear(angle) {
     stroke(this.color);
     strokeWeight(0.5 * pow(this.radius, 0.3));
     push();
