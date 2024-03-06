@@ -27,7 +27,7 @@ Now, in the Apollonian gasket, we start with three circles inside a larger circl
 
 The cool thing about this theorem is that it applies not just to three circles but to any number of circles that are all tangent to each other. So as we keep adding smaller circles into the gaps, we can keep using Descartes' theorem to understand how they all fit together. It's named after the ancient Greek mathematician Apollonius, who was really good at studying shapes and curves.
 
-The [code](https://editor.p5js.org/codingtrain/sketches/zrq8KHXnO) for most of the versions is from [Daniel Shiffman](https://thecodingtrain.com) -- Apollonian Coding Challenge coming soon!
+The [code](https://editor.p5js.org/codingtrain/sketches/zrq8KHXnO) for most of the versions is adapted from [Daniel Shiffman](https://thecodingtrain.com) -- Apollonian Coding Challenge coming soon!
 
 The code for the nested version is from [Richard Bourne](https://openprocessing.org/user/162823?view=sketches&o=48) (I have updated the syntax a little bit.) The python and circle inversion code sets actual pixels, so it can't be adapted like Daniel's code. The python code is from user [FB36](https://code.activestate.com/recipes/users/4172570/) posted in ActiveStateCode. I obtained the circle inversion code by posting the python code in ChatGPT3.5 and asking it to port to p5.js. It did a pretty decent job--I only had to modify the loop slightly.
 
