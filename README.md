@@ -20,7 +20,7 @@ Descartes' formula is a mathematical formula that helps us understand the relati
 Here's the idea: for any three circles that are mutually tangent (meaning they touch each other externally), there's a neat formula that relates the curvatures (or how "bendy" they are) of these circles. The formula is:
 \((k_1 + k_2 + k_3)^2 = 2(k_1^2 + k_2^2 + k_3^2)\)
 
-Here, \(k1\), \(k2\), and \(k3\) are the curvatures of the circles. The curvature of a circle is just the reciprocal of its radius. So if you have a big circle with radius \(R)\, its curvature is \(1/R\).
+Here, $k1$, \(k2\), and \(k3\) are the curvatures of the circles. The curvature of a circle is just the reciprocal of its radius. So if you have a big circle with radius \(R)\, its curvature is \(1/R\).
 
 Now, in the Apollonian gasket, we start with three circles inside a larger circle. These circles are tangent to each other and the big circle. Using Descartes' theorem, we can find the curvatures of these circles and use them to find the curvatures of the smaller circles we pack inside them, and so on.
 
