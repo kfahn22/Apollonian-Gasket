@@ -28,7 +28,7 @@ The cool thing about this theorem is that it applies not just to three circles b
 
 The [code](https://editor.p5js.org/codingtrain/sketches/zrq8KHXnO) for most of the versions is from [Daniel Shiffman](https://thecodingtrain.com) -- Apollonian Coding Challenge coming soon!
 
-The python and circle inversion code sets actual pixels, so it can't be adapted like Daniel's code. The python code is from user [FB36](https://code.activestate.com/recipes/users/4172570/) posted in ActiveStateCode. I obtained the circle inversion code by posting the python code in ChatGPT3.5 and asking it to port to p5.js. It did a pretty decent job--I only had to modify the loop slightly.
+The code for the nested version is from Richard Bourne (I have updated the syntax a little bit.)The python and circle inversion code sets actual pixels, so it can't be adapted like Daniel's code. The python code is from user [FB36](https://code.activestate.com/recipes/users/4172570/) posted in ActiveStateCode. I obtained the circle inversion code by posting the python code in ChatGPT3.5 and asking it to port to p5.js. It did a pretty decent job--I only had to modify the loop slightly.
 
 ## 🌄 Gallery
 

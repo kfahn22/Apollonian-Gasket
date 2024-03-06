@@ -34,7 +34,7 @@ let Y_AXIS;
 function setup() {
   //console.log("back to functions");
 
-  createCanvas(800, 450);
+  createCanvas(600, 600);
   smooth(8);
 
   // choose 3 inital k values (largest to smallest radius) DO NOT CHANGE THESE
