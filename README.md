@@ -81,16 +81,27 @@ The code for the nested version is from [Richard Bourne](https://openprocessing.
 
 ## References
 
+- [Apollonian circle packings: Dynamics and Number theory](https://users.math.yale.edu/~ho2/doc/Oh_ICWM.pdf)
+- [Apollonian Gasket](https://www.jasondavies.com/apollonian-gasket/)
+- [Apollonian Gasket](http://www.malinc.se/math/geometry/apolloniangasketen.php)
+- [A Tisket, a Tasket, an Apollonian Gasket](https://www.americanscientist.org/article/a-tisket-a-tasket-an-apollonian-gasket)
+- [A Visual Solution to the Apollonian Problem](http://laelcosta.com/demo3.js)
+- [Circle Packing Explorations](https://archive.bridgesmathart.org/2013/bridges2013-399.pdf)
+- [Descartes Circle Theorem, Steiner Porism, and Spherical Designs](https://arxiv.org/pdf/1811.08030.pdf)
 - [Single Line Apollonian Gaskets:
   Is The Limit a Space Filling Fractal Curve?](https://arxiv.org/pdf/2204.05729.pdf)
 - [Single Line Apollonian Gaskets for Fashion](https://archive.bridgesmathart.org/2022/bridges2022-119.pdf)
 - [Soddy Circles](https://mathworld.wolfram.com/SoddyCircles.html)
-- [Apollonian Gasket](http://www.malinc.se/math/geometry/apolloniangasketen.php)
-- [A Tisket, a Tasket, an Apollonian Gasket](https://www.americanscientist.org/article/a-tisket-a-tasket-an-apollonian-gasket)
-- [A Visual Solution to the Apollonian Problem](http://laelcosta.com/demo3.js)
-- [Apollonian circle packings: Dynamics and Number theory](https://users.math.yale.edu/~ho2/doc/Oh_ICWM.pdf)
+- [Steiner Chains](https://en.wikipedia.org/wiki/Steiner_chain)
+- [Vieta formula](https://en.wikipedia.org/wiki/Vieta%27s_formulas)
 
 Processing code examples
 https://openprocessing.org/browse/?time=anytime&type=all&q=apollonian#
 https://openprocessing.org/sketch/1878906
 Processing
+
+D3
+[Zoomable circle packing](https://observablehq.com/@d3/pack-component)
+
+Github
+[Apollonian](https://github.com/macbuse/Apollonian/tree/master)
