@@ -7,7 +7,7 @@ function setup() {
   center.push(
     new Apollonian(new Circle(-1 / (width / 2), width / 2, height / 2))
   );
-  center[0].addInitialCircles();
+  center[0].addCircles();
   // First two inner circles
   allCircles = center[0].allCircles;
   queue = center[0].queue;

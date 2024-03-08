@@ -3,43 +3,21 @@ class Apollonian {
     this.outer = _c;
     this.allCircles = [];
     this.queue = [];
-    this.epsilon = 0.1;
-  }
-
-  addInitialCircles() {
-    let c1 = this.outer;
-    let r2 = random(100, c1.radius / 2);
-    //let r2 = c1.radius/2;
-
-    let v = p5.Vector.fromAngle(random(TWO_PI));
-    v.setMag(c1.radius - r2);
-    let c2 = new Circle(1 / r2, width / 2 + v.x, height / 2 + v.y);
-    //let c2 = new Circle(1 / r2, c1.radius + v.x, c1.radus + v.y);
-    let r3 = v.mag();
-    v.rotate(PI);
-    v.setMag(c1.radius - r3);
-    let c3 = new Circle(1 / r3, width / 2 + v.x, height / 2 + v.y);
-    //let c3 = new Circle(1 / r3, c1.radius + v.x, c1.radius + v.y);
-    this.allCircles = [c1, c2, c3];
-    this.queue = [[c1, c2, c3]];
+    this.epsilon = 0.2;
   }
 
   addCircles() {
-    this.allCircles = [];
-    this.queue = [];
     let c1 = this.outer;
     let r2 = random(100, c1.radius / 2);
-    //let r2 = c1.radius/2;
 
     let v = p5.Vector.fromAngle(random(TWO_PI));
     v.setMag(c1.radius - r2);
-    //let c2 = new Circle(1 / r2, width/2 + v.x, height/2 + v.y);
-    let c2 = new Circle(1 / r2, c1.radius + v.x, c1.radus + v.y);
+    let c2 = new Circle(1 / r2, c1.center.a + v.x, c1.center.b + v.y);
     let r3 = v.mag();
     v.rotate(PI);
     v.setMag(c1.radius - r3);
     //let c3 = new Circle(1 / r3, width/2 + v.x, height/2 + v.y);
-    let c3 = new Circle(1 / r3, c1.radius + v.x, c1.radius + v.y);
+    let c3 = new Circle(1 / r3, c1.center.a + v.x, c1.center.b + v.y);
     this.allCircles = [c1, c2, c3];
     this.queue = [[c1, c2, c3]];
   }
