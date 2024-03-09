@@ -1,16 +1,15 @@
 class Apollonian {
-  constructor(_c) {
+  constructor(_c, _minRadius) {
     this.outer = _c;
     this.allCircles = [];
     this.queue = [];
     this.epsilon = 0.1;
-    this.n = 6;
-    //this.starter = new Steiner(this.outer);
+    this.minRadius = _minRadius;
   }
 
   setOuter() {
     let c1 = this.outer;
-    let r2 = random(100, c1.radius / 2);
+    let r2 = random(c1.radius / 4, c1.radius / 2);
 
     let v = p5.Vector.fromAngle(random(TWO_PI));
     v.setMag(c1.radius - r2);
