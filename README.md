@@ -88,11 +88,13 @@ The code for the nested version is from [Richard Bourne](https://openprocessing.
 - [A Visual Solution to the Apollonian Problem](http://laelcosta.com/demo3.js)
 - [Circle Packing Explorations](https://archive.bridgesmathart.org/2013/bridges2013-399.pdf)
 - [Descartes Circle Theorem, Steiner Porism, and Spherical Designs](https://arxiv.org/pdf/1811.08030.pdf)
+- [Geometry Unbound](https://kskedlaya.org/geometryunbound/gu-060118.pdf)
 - [Single Line Apollonian Gaskets:
   Is The Limit a Space Filling Fractal Curve?](https://arxiv.org/pdf/2204.05729.pdf)
 - [Single Line Apollonian Gaskets for Fashion](https://archive.bridgesmathart.org/2022/bridges2022-119.pdf)
 - [Soddy Circles](https://mathworld.wolfram.com/SoddyCircles.html)
 - [Steiner Chains](https://en.wikipedia.org/wiki/Steiner_chain)
+- [The Apollonian Gasket](https://www3.math.tu-berlin.de/geometrie/Lehre/WS12/MathVis/resources/projects/steinertStruempelSlides.pdf)
 - [Vieta formula](https://en.wikipedia.org/wiki/Vieta%27s_formulas)
 
 Processing code examples
@@ -105,3 +107,5 @@ D3
 
 Github
 [Apollonian](https://github.com/macbuse/Apollonian/tree/master)
+
+https://tex.stackexchange.com/questions/539896/another-way-to-draw-steiners-chain
