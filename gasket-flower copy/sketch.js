@@ -14,16 +14,19 @@ let colorsCT = [
 function setup() {
   createCanvas(400, 400);
   let col = color("#2DC5F4");
-  chains.push(new SteinerChain(width / 2, width / 2, height / 2, 3, col));
-  //gaskets.push(new Gasket(width / 2, width / 2, height / 2, 3, col));
-  // console.log(chains);
+  chains.push(
+    new SteinerChain(width / 2, width / 2, height / 2, 3, color("#A42963"))
+  );
+
   let circleArray = chains[0].allCircles;
   let len = circleArray.length;
   for (let i = 0; i < len; i++) {
     let c = circleArray[i];
     console.log(c);
     // Replace a gasket with a chain
-    gaskets.push(new Gasket(c.center.a, c.center.b, c.radius, 3, col));
+    gaskets.push(
+      new Gasket(c.center.a, c.center.b, c.radius, 3, color("#F063A4"))
+    );
   }
 
   for (let n = 0; n < 1; n++) {
