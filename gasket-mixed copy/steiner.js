@@ -69,8 +69,8 @@ class SteinerChain {
     if (this.recursed) return;
     this.recursed = true;
     let newChains = [];
-    for (let i = 0; i < allCircles.length; i++) {
-      let c = allCircles[i];
+    for (let i = 0; i < this.allCircles.length; i++) {
+      let c = this.allCircles[i];
       if (c.radius < 100) continue;
       newChains.push(
         new SteinerChain(

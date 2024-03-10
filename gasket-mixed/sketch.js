@@ -1,73 +1,27 @@
-let allCircles = [];
-let center = [];
-let queue = [];
+let chains = [];
+let gaskets = [];
 
 function setup() {
-  createCanvas(800, 800);
-  center.push(
-    new Apollonian(new Circle(-1 / (width / 4), width / 2, height / 2))
-  );
-  center[0].addCircles();
-  // First two inner circles
-  allCircles = center[0].allCircles;
-  queue = center[0].queue;
+  createCanvas(400, 400);
 
-  // See the first two inner circles as outer circles for fractal recursion
-  // center.push(
-  //   new Apollonian(
-  //     new Circle(
-  //       -1 / allCircles[1].radius,
-  //       allCircles[1].center.x,
-  //       allCircles[1].center.y
-  //     )
-  //   )
-  // );
-  // center.push(
-  //   new Apollonian(
-  //     new Circle(
-  //       -1 / allCircles[2].radius,
-  //       allCircles[2].center.x,
-  //       allCircles[2].center.y
-  //     )
-  //   )
-  // );
-  //console.log(center);
-  //for (let i = 1; i < 3; i++) {
-  // let nextGen = center[1].addCircles();
-
-  //console.log(nextGen)
-  // concat
-  //allCircles.push(...nextGen);
-  //allCircles.push(...center[1].addCircles())
-  //console.log(allCircles);
-
-  // for (let j = 0; j < nextGen.length; j++) {
-  //   allCircles.push(nextGen[j]);
-  //   console.log(allCircles);
+  let col = color(255, 0, 0);
+  //gaskets.push(new Gasket(width / 2, height / 2, width / 2, 3, col));
+  gaskets.push(new SteinerChain(width / 2, height / 2, width / 2, 3, col));
+  // for (let n = 0; n < 1; n++) {
+  //   for (let i = gaskets.length - 1; i >= 0; i--) {
+  //     let nextG = gaskets[i].recurse();
+  //     if (nextG) gaskets.push(...nextG);
+  //   }
   // }
-  // queue.push(allCircles);
-  // }
-  queue = allCircles;
-  // console.log(queue);
 }
 
 function draw() {
   background(255);
-  let len1 = allCircles.length;
-  center[0].nextGeneration();
-  // for (let i = 1; i < center.length; i++) {
-  //    center[i].nextGeneration();
-  // }
+  //translate(width / 2, height / 2);
+  scale(1);
 
-  let len2 = allCircles.length;
-  if (len1 == len2) {
-    console.log("done");
-    noLoop();
+  for (let gasket of gaskets) {
+    gasket.show();
+    //gasket.nextGeneration();
   }
-  center[0].showCircles();
-  //center[1].showCircles();
-  // for (let c of allCircles) {
-  //   c.showCircles();
-  // }
-  //noLoop();
 }
