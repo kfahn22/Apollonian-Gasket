@@ -32,25 +32,27 @@ function validate(c4, c1, c2, c3, allCircles) {
 }
 
 class SteinerChain {
-  constructor(x, y, r, sw, color) {
+  constructor(r, x, y, sw, color) {
     this.x = x;
     this.y = y;
     this.r = r;
     this.allCircles = [];
     this.queue = [];
     this.n = 6;
-    let c1 = new GasketCircle(-1 / r, x, y);
-    let r2 = c1.radius / 3;
+    let c1 = new GasketCircle(-1 / this.r, this.x, this.y);
+    //let r2 = c1.radius / 3;
+    let r2 = this.r / 3;
     let v = p5.Vector.fromAngle(random(TWO_PI));
-    v.setMag(c1.radius - r2);
-    let c2 = new GasketCircle(1 / r2, x, y);
+    //v.setMag(c1.radius - r2);
+    v.setMag(this.r - r2);
+    let c2 = new GasketCircle(1 / r2, this.x, this.y);
     let r3 = v.mag() - r2;
     this.allCircles.push(c1, c2);
     //this.queue = [c1, c2];
     for (let i = 0; i < this.n; i++) {
       v.rotate(TWO_PI / this.n);
       v.setMag(c1.radius - r3);
-      let c = new GasketCircle(1 / r3, x + v.x, y + v.y);
+      let c = new GasketCircle(1 / r3, this.x + v.x, this.y + v.y);
       this.allCircles.push(c);
       this.queue.push(c);
       //console.log(this.queue);
@@ -75,6 +77,7 @@ class SteinerChain {
     let newChains = [];
     for (let i = 0; i < this.allCircles.length; i++) {
       let c = this.allCircles[i];
+      console.log(c)
       if (c.radius < 2) continue;
       newChains.push(
         new SteinerChain(
@@ -86,7 +89,7 @@ class SteinerChain {
         )
       );
 
-      console.log(newChains);
+      //console.log(newChains);
     }
     return newChains;
   }
@@ -182,3 +185,23 @@ function descartes(c1, c2, c3) {
 //     return dist(this.center.a, this.center.b, other.center.a, other.center.b);
 //   }
 // }
+
+class ChainCircle {
+  constructor(bend, x, y) {
+    this.center = new Complex(x, y);
+    this.bend = bend;
+    this.radius = abs(1 / this.bend);
+  }
+
+  show(c, sw) {
+    stroke(c);
+    let sw2 = map(this.radius, 0, width / 2, 1, 5);
+    strokeWeight(sw2);
+    noFill();
+    circle(this.center.a, this.center.b, this.radius*2);
+  }
+
+  dist(other) {
+    return dist(this.center.a, this.center.b, other.center.a, other.center.b);
+  }
+}

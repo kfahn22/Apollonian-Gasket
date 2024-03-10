@@ -5,22 +5,26 @@ function setup() {
   createCanvas(400, 400);
 
   let col = color(255, 0, 0);
-  gaskets.push(new Gasket(width / 2, height / 2, width / 2, 3, col));
-  let c = gaskets[0];
-  
-  console.log(c.allCircles);
-  //let c1 = random(c.allCircles);
-  let c1 = c.allCircles[1];
-  console.log(c1);
-  console.log(c1.center.a)
-  chains.push(new SteinerChain(c1.radius, c1.center.a, c1.center.b, 3, col));
+  gaskets.push(new Gasket(width / 2, width / 2, height / 2, 3, col));
+  let circleArray = gaskets[0].allCircles;
+  let len = circleArray.length;
+  //console.log(len); // 161
+  for (let i = 0; i < len / 6; i++) {
+    // choose a random gasket to replace
+    c = random(circleArray);
+    // Replace a gasket with a chain
+    chains.push(new SteinerChain(c.radius, c.center.a, c.center.b, 1, col));
+    // Find the original gasket and delete
+    const index = circleArray.indexOf(c);
+    circleArray.splice(index, 1);
+  }
+
   for (let n = 0; n < 1; n++) {
     for (let i = gaskets.length - 1; i >= 0; i--) {
       let nextG = gaskets[i].recurse();
       if (nextG) gaskets.push(...nextG);
     }
   }
-
 }
 
 function draw() {
@@ -37,6 +41,6 @@ function draw() {
     push();
     //translate(chain.x, chain.y);
     chain.show();
-    pop()
+    pop();
   }
 }
