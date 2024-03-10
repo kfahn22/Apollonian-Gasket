@@ -46,18 +46,14 @@ class SteinerChain {
     let c2 = new GasketCircle(1 / r2, x, y);
     let r3 = v.mag() - r2;
     this.allCircles = [c1, c2];
-    console.log(this.allCircles);
     for (let i = 0; i < this.n; i++) {
       v.rotate(TWO_PI / this.n);
       v.setMag(c1.radius - r3);
       let c = new GasketCircle(1 / r3, x + v.x, y + v.y);
       this.allCircles.push(c);
-      this.queue = this.allCircles;
-      console.log(this.allCircles);
+      this.queue = [this.allCircles];
+      //console.log(this.queue);
     }
-    // this.allCircles = [c1, c2, c3];
-    // this.queue = [this.allCircles];
-    //console.log(this.queue);
     this.color = color;
     this.recursed = false;
     this.startC = this.allCircles.shift();
@@ -70,32 +66,13 @@ class SteinerChain {
     }
   }
 
-  init() {
-    this.allCircles = [];
-    this.queue = [];
-    let c1 = new GasketCircle(-1 / this.r, this.x, this.y);
-    let r2 = c1.radius / 3;
-    let v = p5.Vector.fromAngle(random(TWO_PI));
-    v.setMag(c1.radius - r2);
-    let c2 = new GasketCircle(1 / r2, this.x, this.y);
-    let r3 = v.mag() - r2;
-    this.allCircles = [c1, c2];
-    for (let i = 0; i < this.n; i++) {
-      v.rotate(TWO_PI / this.n);
-      v.setMag(c1.radius - r3);
-      this.allCircles.push(
-        new GasketCircle(1 / r3, this.x + v.x, this.y + v.y)
-      );
-    }
-  }
-
   recurse() {
     if (this.recursed) return;
     this.recursed = true;
     let newChains = [];
     for (let i = 0; i < this.allCircles.length; i++) {
       let c = this.allCircles[i];
-      if (c.radius < 100) continue;
+      if (c.radius < 10) continue;
       newChains.push(
         new SteinerChain(
           c.center.a,
@@ -109,29 +86,9 @@ class SteinerChain {
     return newChains;
   }
 
-  // recurse() {
-  //   if (this.recursed) return;
-  //   this.recursed = true;
-  //   let newGaskets = [];
-  //   for (let i = 1; i < this.allCircles.length; i++) {
-  //     let c = this.allCircles[i];
-  //     if (c.radius < 4) continue;
-  //     newGaskets.push(
-  //       new SteinerChain(
-  //         c.center.a,
-  //         c.center.b,
-  //         c.radius,
-  //         this.sw / 16,
-  //         this.color
-  //       )
-  //     );
-  //   }
-  //   return newGaskets;
-  // }
-
   nextGeneration() {
     let nextQueue = [];
-    this.recurse();
+    nextQueue = nextQueue.concat(this.startC);
     this.queue = nextQueue;
   }
 
