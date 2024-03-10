@@ -1,6 +1,6 @@
 // https://github.com/CodingTrain/Logo-Animations/tree/main/public/gasketLogo
 
-const epsilon = 0.1;
+//const epsilon = 0.1;
 
 function isTangent(c1, c2) {
   let d = c1.dist(c2);
@@ -31,29 +31,37 @@ function validate(c4, c1, c2, c3, allCircles) {
   return true;
 }
 
-class Gasket {
-  constructor(x, y, r, sw, color) {
+class SteinerChain {
+  constructor(r, x, y, sw, color) {
     this.x = x;
     this.y = y;
     this.r = r;
     this.allCircles = [];
     this.queue = [];
+    this.n = 2;
     let c1 = new GasketCircle(-1 / this.r, this.x, this.y);
-    let r2 = random(c1.radius / 4, c1.radius / 2);
-    //console.log(c1);
+    let r2 = c1.radius / 6;
+    //let r2 = this.r * 0.2;
     let v = p5.Vector.fromAngle(random(TWO_PI));
+    //v.setMag(c1.radius - r2);
     v.setMag(c1.radius - r2);
-    let c2 = new GasketCircle(1 / r2, this.x + v.x, this.y + v.y);
-    let r3 = v.mag();
-    v.rotate(PI);
-    v.setMag(c1.radius - r3);
-    let c3 = new GasketCircle(1 / r3, this.x + v.x, this.y + v.y);
-    this.allCircles = [c1, c2, c3];
-    this.queue = [[c1, c2, c3]];
-    //this.color = color(random(colorsCT));
+    let c2 = new GasketCircle(1 / r2, this.x, this.y);
+    let r3 = (c1.radius - r2)/2;
+    this.allCircles.push(c1, c2);
+    //this.queue = [c1, c2];
+    for (let i = 0; i < this.n; i++) {
+      v.rotate(TWO_PI / this.n);
+      v.setMag(c1.radius - r3);
+      let c = new GasketCircle(1 / r3, this.x + v.x, this.y + v.y);
+      this.allCircles.push(c);
+      this.queue.push(c);
+      //console.log(this.queue);
+    }
     this.color = color;
     this.recursed = false;
-    this.startC = [c2, c3];
+    this.startC = this.allCircles.shift();
+
+    //console.log(this.startC)
     this.sw = sw;
 
     let len = -1;
@@ -66,33 +74,26 @@ class Gasket {
   recurse() {
     if (this.recursed) return;
     this.recursed = true;
-    let newGaskets = [];
-    for (let i = 1; i < this.allCircles.length; i++) {
+    let newChains = [];
+    for (let i = 0; i < this.allCircles.length; i++) {
       let c = this.allCircles[i];
       if (c.radius < 4) continue;
-      newGaskets.push(
-        new Gasket(c.center.a, c.center.b, c.radius, this.sw / 16, this.color)
+      newChains.push(
+        new SteinerChain(
+          c.center.a,
+          c.center.b,
+          c.radius,
+          this.sw / 16,
+          this.color
+        )
       );
     }
-    return newGaskets;
+    return newChains;
   }
 
   nextGeneration() {
     let nextQueue = [];
-    for (let triplet of this.queue) {
-      let [c1, c2, c3] = triplet;
-      let k4 = descartes(c1, c2, c3);
-      let newCircles = complexDescartes(c1, c2, c3, k4);
-      for (let newCircle of newCircles) {
-        if (validate(newCircle, c1, c2, c3, this.allCircles)) {
-          this.allCircles.push(newCircle);
-          let t1 = [c1, c2, newCircle];
-          let t2 = [c1, c3, newCircle];
-          let t3 = [c2, c3, newCircle];
-          nextQueue = nextQueue.concat([t1, t2, t3]);
-        }
-      }
-    }
+    nextQueue = nextQueue.concat(this.queue);
     this.queue = nextQueue;
   }
 
@@ -142,7 +143,27 @@ function descartes(c1, c2, c3) {
   return [sum + root, sum - root];
 }
 
-class GasketCircle {
+// class Circle {
+//   constructor(bend, x, y) {
+//     this.center = new Complex(x, y);
+//     this.bend = bend;
+//     this.radius = abs(1 / this.bend);
+//   }
+
+//   show(c, sw) {
+//     stroke(c);
+//     let sw2 = map(this.radius, 0, width / 2, 1, 20);
+//     strokeWeight(sw2);
+//     noFill();
+//     circle(this.center.a, this.center.b, this.radius * 2);
+//   }
+
+//   dist(other) {
+//     return dist(this.center.a, this.center.b, other.center.a, other.center.b);
+//   }
+// }
+
+class ChainCircle {
   constructor(bend, x, y) {
     this.center = new Complex(x, y);
     this.bend = bend;

@@ -33,20 +33,24 @@ function validate(c4, c1, c2, c3, allCircles) {
 
 class Gasket {
   constructor(x, y, r, sw, color) {
+    this.x = x;
+    this.y = y;
+    this.r = r;
     this.allCircles = [];
     this.queue = [];
-    let c1 = new GasketCircle(-1 / r, x, y);
+    let c1 = new GasketCircle(-1 / this.r, this.x, this.y);
     let r2 = random(c1.radius / 4, c1.radius / 2);
-    console.log(c1);
+    //console.log(c1);
     let v = p5.Vector.fromAngle(random(TWO_PI));
     v.setMag(c1.radius - r2);
-    let c2 = new GasketCircle(1 / r2, x + v.x, y + v.y);
+    let c2 = new GasketCircle(1 / r2, this.x + v.x, this.y + v.y);
     let r3 = v.mag();
     v.rotate(PI);
     v.setMag(c1.radius - r3);
-    let c3 = new GasketCircle(1 / r3, x + v.x, y + v.y);
+    let c3 = new GasketCircle(1 / r3, this.x + v.x, this.y + v.y);
     this.allCircles = [c1, c2, c3];
     this.queue = [[c1, c2, c3]];
+    //this.color = color(random(colorsCT));
     this.color = color;
     this.recursed = false;
     this.startC = [c2, c3];
@@ -147,7 +151,7 @@ class GasketCircle {
 
   show(c, sw) {
     stroke(c);
-    let sw2 = map(this.radius, 0, width / 2, 1, 15);
+    let sw2 = map(this.radius, 0, width / 2, 1, 5);
     strokeWeight(sw2);
     noFill();
     circle(this.center.a, this.center.b, this.radius * 2);

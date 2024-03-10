@@ -33,6 +33,9 @@ function validate(c4, c1, c2, c3, allCircles) {
 
 class SteinerChain {
   constructor(x, y, r, sw, color) {
+    this.x = x;
+    this.y = y;
+    this.r = r;
     this.allCircles = [];
     this.queue = [];
     this.n = 6;
@@ -40,29 +43,30 @@ class SteinerChain {
     let r2 = c1.radius / 3;
     let v = p5.Vector.fromAngle(random(TWO_PI));
     v.setMag(c1.radius - r2);
-    let c2 = new GasketCircle(1 / r2, x + v.x, y + v.y);
+    let c2 = new GasketCircle(1 / r2, x, y);
     let r3 = v.mag() - r2;
-    this.allCircles = [c1, c2];
+    this.allCircles.push(c1, c2);
+    //this.queue = [c1, c2];
     for (let i = 0; i < this.n; i++) {
       v.rotate(TWO_PI / this.n);
       v.setMag(c1.radius - r3);
       let c = new GasketCircle(1 / r3, x + v.x, y + v.y);
       this.allCircles.push(c);
-      this.queue = this.allCircles.push(c);
+      this.queue.push(c);
+      //console.log(this.queue);
     }
-    //this.allCircles = [c1, c2, c3];
-    //this.queue = [this.allCircles];
-    console.log(this.queue);
     this.color = color;
     this.recursed = false;
     this.startC = this.allCircles.shift();
+    
+    //console.log(this.startC)
     this.sw = sw;
 
     let len = -1;
-    // while (this.allCircles.length !== len) {
-    //   len = this.allCircles.length;
-    //   this.nextGeneration();
-    // }
+    while (this.allCircles.length !== len) {
+      len = this.allCircles.length;
+      this.nextGeneration();
+    }
   }
 
   recurse() {
@@ -71,7 +75,7 @@ class SteinerChain {
     let newChains = [];
     for (let i = 0; i < this.allCircles.length; i++) {
       let c = this.allCircles[i];
-      if (c.radius < 7) continue;
+      if (c.radius < 2) continue;
       newChains.push(
         new SteinerChain(
           c.center.a,
@@ -81,48 +85,36 @@ class SteinerChain {
           this.color
         )
       );
+      console.log(newChains);
     }
-    return newGaskets;
+    return newChains;
+    
   }
-
-  // recurse() {
-  //   if (this.recursed) return;
-  //   this.recursed = true;
-  //   let newGaskets = [];
-  //   for (let i = 1; i < this.allCircles.length; i++) {
-  //     let c = this.allCircles[i];
-  //     if (c.radius < 4) continue;
-  //     newGaskets.push(
-  //       new SteinerChain(
-  //         c.center.a,
-  //         c.center.b,
-  //         c.radius,
-  //         this.sw / 16,
-  //         this.color
-  //       )
-  //     );
-  //   }
-  //   return newGaskets;
-  // }
 
   nextGeneration() {
     let nextQueue = [];
-    for (let triplet of this.queue) {
-      let [c1, c2, c3] = triplet;
-      let k4 = descartes(c1, c2, c3);
-      let newCircles = complexDescartes(c1, c2, c3, k4);
-      for (let newCircle of newCircles) {
-        if (validate(newCircle, c1, c2, c3, this.allCircles)) {
-          this.allCircles.push(newCircle);
-          let t1 = [c1, c2, newCircle];
-          let t2 = [c1, c3, newCircle];
-          let t3 = [c2, c3, newCircle];
-          nextQueue = nextQueue.concat([t1, t2, t3]);
-        }
-      }
-    }
+    nextQueue = nextQueue.concat(this.queue);
     this.queue = nextQueue;
   }
+
+  // nextGeneration() {
+  //   let nextQueue = [];
+  //   for (let triplet of this.queue) {
+  //     let [c1, c2, c3] = triplet;
+  //     let k4 = descartes(c1, c2, c3);
+  //     let newCircles = complexDescartes(c1, c2, c3, k4);
+  //     for (let newCircle of newCircles) {
+  //       if (validate(newCircle, c1, c2, c3, this.allCircles)) {
+  //         this.allCircles.push(newCircle);
+  //         let t1 = [c1, c2, newCircle];
+  //         let t2 = [c1, c3, newCircle];
+  //         let t3 = [c2, c3, newCircle];
+  //         nextQueue = nextQueue.concat([t1, t2, t3]);
+  //       }
+  //     }
+  //   }
+  //   this.queue = nextQueue;
+  // }
 
   show() {
     for (let c of this.allCircles) {
@@ -170,7 +162,7 @@ function descartes(c1, c2, c3) {
   return [sum + root, sum - root];
 }
 
-// class GasketCircle {
+// class Circle {
 //   constructor(bend, x, y) {
 //     this.center = new Complex(x, y);
 //     this.bend = bend;
