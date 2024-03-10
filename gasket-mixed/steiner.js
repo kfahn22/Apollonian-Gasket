@@ -77,7 +77,6 @@ class SteinerChain {
     let newChains = [];
     for (let i = 0; i < this.allCircles.length; i++) {
       let c = this.allCircles[i];
-      console.log(c)
       if (c.radius < 2) continue;
       newChains.push(
         new SteinerChain(
@@ -88,8 +87,6 @@ class SteinerChain {
           this.color
         )
       );
-
-      //console.log(newChains);
     }
     return newChains;
   }
@@ -100,26 +97,6 @@ class SteinerChain {
     this.queue = nextQueue;
   }
 
-  // nextGeneration() {
-  //   let nextQueue = [];
-  //   for (let triplet of this.queue) {
-  //     let [c1, c2, c3] = triplet;
-  //     let k4 = descartes(c1, c2, c3);
-  //     let newCircles = complexDescartes(c1, c2, c3, k4);
-  //     for (let newCircle of newCircles) {
-  //       if (validate(newCircle, c1, c2, c3, this.allCircles)) {
-  //         this.allCircles.push(newCircle);
-  //         let t1 = [c1, c2, newCircle];
-  //         let t2 = [c1, c3, newCircle];
-  //         let t3 = [c2, c3, newCircle];
-  //         nextQueue = nextQueue.concat([t1, t2, t3]);
-  //       }
-  //     }
-  //   }
-  //   this.queue = nextQueue;
-  // }
-
- 
   show() {
     for (let c of this.allCircles) {
       c.show(this.color, this.sw);

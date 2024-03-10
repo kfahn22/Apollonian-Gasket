@@ -8,14 +8,14 @@ function setup() {
   gaskets.push(new Gasket(width / 2, width / 2, height / 2, 3, col));
   let circleArray = gaskets[0].allCircles;
   let len = circleArray.length;
-  //console.log(len); // 161
-  for (let i = 0; i < len / 6; i++) {
+  for (let i = 0; i < len / 2; i++) {
     // choose a random gasket to replace
-    c = random(circleArray);
+    let index = int(random(1, circleArray.length));
+    let c = circleArray[index];
+
     // Replace a gasket with a chain
     chains.push(new SteinerChain(c.radius, c.center.a, c.center.b, 1, col));
     // Find the original gasket and delete
-    const index = circleArray.indexOf(c);
     circleArray.splice(index, 1);
   }
 
