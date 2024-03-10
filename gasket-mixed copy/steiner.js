@@ -35,23 +35,23 @@ class SteinerChain {
   constructor(x, y, r, sw, color) {
     this.allCircles = [];
     this.queue = [];
-    let c1 = new SteinerChain(-1 / r, x, y);
+    this.n = 6;
+    let c1 = new GasketCircle(-1 / r, x, y);
     let r2 = c1.radius / 3;
     let v = p5.Vector.fromAngle(random(TWO_PI));
     v.setMag(c1.radius - r2);
-    let c2 = new SteinerChain(1 / r2, x + v.x, y + v.y);
-    let r3 = v.mag();
-    this.n = 6;
-    v.rotate(PI);
-    v.setMag(c1.radius - r3);
+    let c2 = new GasketCircle(1 / r2, x + v.x, y + v.y);
+    let r3 = v.mag() - r2;
     this.allCircles = [c1, c2];
     for (let i = 0; i < this.n; i++) {
       v.rotate(TWO_PI / this.n);
       v.setMag(c1.radius - r3);
-      this.allCircles.push(new SteinerChain(1 / r3, x + v.x, y + v.y));
+      let c = new GasketCircle(1 / r3, x + v.x, y + v.y);
+      this.allCircles.push(c);
+      this.queue = this.allCircles.push(c);
     }
     //this.allCircles = [c1, c2, c3];
-    this.queue = [this.allCircles];
+    //this.queue = [this.allCircles];
     console.log(this.queue);
     this.color = color;
     this.recursed = false;
@@ -59,30 +59,11 @@ class SteinerChain {
     this.sw = sw;
 
     let len = -1;
-    while (this.allCircles.length !== len) {
-      len = this.allCircles.length;
-      this.nextGeneration();
-    }
+    // while (this.allCircles.length !== len) {
+    //   len = this.allCircles.length;
+    //   this.nextGeneration();
+    // }
   }
-
-  // init() {
-  //   this.allCircles = [];
-  //   this.queue = [];
-  //   let c1 = this.outer;
-  //   let r2 = c1.radius / 3;
-  //   let v = p5.Vector.fromAngle(random(TWO_PI));
-  //   v.setMag(c1.radius - r2);
-  //   let c2 = new Circle(1 / r2, c1.center.a, c1.center.b);
-  //   let r3 = v.mag() - r2;
-  //   this.allCircles = [c1, c2];
-  //   for (let i = 0; i < this.n; i++) {
-  //     v.rotate(TWO_PI / this.n);
-  //     v.setMag(c1.radius - r3);
-  //     this.allCircles.push(
-  //       new Circle(1 / r3, c1.center.a + v.x, c1.center.b + v.y)
-  //     );
-  //   }
-  // }
 
   recurse() {
     if (this.recursed) return;
@@ -90,7 +71,7 @@ class SteinerChain {
     let newChains = [];
     for (let i = 0; i < allCircles.length; i++) {
       let c = allCircles[i];
-      if (c.radius > 50) continue;
+      if (c.radius < 100) continue;
       newChains.push(
         new SteinerChain(
           c.center.a,
@@ -171,10 +152,10 @@ function complexDescartes(c1, c2, c3, k4) {
   let center4 = sum.sub(root).scale(1 / k4[1]);
 
   return [
-    new SteinerChain(k4[0], center1.a, center1.b),
-    new SteinerChain(k4[0], center2.a, center2.b),
-    new SteinerChain(k4[1], center3.a, center3.b),
-    new SteinerChain(k4[1], center4.a, center4.b),
+    new GasketCircle(k4[0], center1.a, center1.b),
+    new GasketCircle(k4[0], center2.a, center2.b),
+    new GasketCircle(k4[1], center3.a, center3.b),
+    new GasketCircle(k4[1], center4.a, center4.b),
   ];
 }
 
