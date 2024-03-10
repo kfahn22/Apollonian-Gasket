@@ -25,6 +25,17 @@ function setup() {
       if (nextG) gaskets.push(...nextG);
     }
   }
+  console.log(chains.length);
+
+  for (let i = 0; i < chains.length/2; i++) {
+    let newArray = chains[i].allCircles;
+    for (let j = 0; j < newArray.length; j++) {
+      let c = newArray[j];
+      if (c.radius > 10) {
+        chains.push(new SteinerChain(c.radius, c.center.a, c.center.b, 2, col));
+      }
+    }
+  }
 }
 
 function draw() {

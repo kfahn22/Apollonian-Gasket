@@ -77,7 +77,7 @@ class SteinerChain {
     let newChains = [];
     for (let i = 0; i < this.allCircles.length; i++) {
       let c = this.allCircles[i];
-      if (c.radius < 2) continue;
+      if (c.radius < 4) continue;
       newChains.push(
         new SteinerChain(
           c.center.a,
@@ -175,7 +175,7 @@ class ChainCircle {
     let sw2 = map(this.radius, 0, width / 2, 1, 5);
     strokeWeight(sw2);
     noFill();
-    circle(this.center.a, this.center.b, this.radius*2);
+    circle(this.center.a, this.center.b, this.radius * 2);
   }
 
   dist(other) {
