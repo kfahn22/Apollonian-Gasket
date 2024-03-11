@@ -34,31 +34,32 @@ function validate(c4, c1, c2, c3, allCircles) {
   return true;
 }
 
-let dict = [
-  { key: "n3", value: "0.46" },
-  { key: "n4", value: "0.41" },
-  { key: "n5", value: "0.37" },
-  { key: "n6", value: "0.33" },
-  { key: "n7", value: "0.3" },
-  { key: "n8", value: "0.27" },
-  { key: "n9", value: "0.25" },
-  { key: "n10", value: "0.23" },
-  { key: "n11", value: "0.22" },
-  { key: "n12", value: "0.2" },
-];
+// let dict = [
+//   { key: "3", value: "0.46" },
+//   { key: "4", value: "0.41" },
+//   { key: "5", value: "0.37" },
+//   { key: "6", value: "0.33" },
+//   { key: "7", value: "0.3" },
+//   { key: "8", value: "0.27" },
+//   { key: "9", value: "0.25" },
+//   { key: "10", value: "0.23" },
+//   { key: "11", value: "0.22" },
+//   { key: "12", value: "0.2" },
+// ];
 
 class SteinerChain {
-  constructor(r, x, y, sw, color) {
+  constructor(r, x, y, n, adj, color) {
     this.x = x;
     this.y = y;
     this.r = r;
     this.allCircles = [];
     this.queue = [];
-    this.n = 12;
+    this.n = n;
+    this.adj = adj;
     let c1 = new GasketCircle(-1 / this.r, this.x, this.y);
     this.allCircles.push(c1);
     let v = p5.Vector.fromAngle(random(TWO_PI));
-    let r3 = this.r * 0.2; // n= 3, 0.46
+    let r3 = this.r * this.adj; 
     for (let i = 0; i < this.n; i++) {
       v.rotate(TWO_PI / this.n);
       v.setMag(this.r - r3);
@@ -76,7 +77,7 @@ class SteinerChain {
     this.startC = this.allCircles.shift();
 
     //console.log(this.startC)
-    this.sw = sw;
+    this.sw = 3;
 
     let len = -1;
     while (this.allCircles.length !== len) {
@@ -97,7 +98,8 @@ class SteinerChain {
           c.center.a,
           c.center.b,
           c.radius,
-          this.sw / 16,
+          this.n,
+          this.adj,
           this.color
         )
       );
