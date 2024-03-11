@@ -33,8 +33,8 @@ function setup() {
       width / 2,
       width / 2,
       height / 2,
-      4,
-      dict[1].value,
+      12,
+      dict[9].value,
       col
     )
   );
@@ -75,7 +75,7 @@ function draw() {
     chain.show();
     pop();
   }
-  stroke(255);
+  stroke("#2DC5F4");
   strokeWeight(3);
   circle(width / 2, height / 2, (width / 2) * 2);
 }
