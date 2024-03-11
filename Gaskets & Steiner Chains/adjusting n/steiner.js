@@ -1,6 +1,9 @@
 // https://github.com/CodingTrain/Logo-Animations/tree/main/public/gasketLogo
 
 //const epsilon = 0.1;
+function mousePressed() {
+  save("flower.jpg");
+}
 
 function isTangent(c1, c2) {
   let d = c1.dist(c2);
@@ -31,31 +34,43 @@ function validate(c4, c1, c2, c3, allCircles) {
   return true;
 }
 
+let dict = [
+  { key: "n3", value: "0.46" },
+  { key: "n4", value: "0.41" },
+  { key: "n5", value: "0.37" },
+  { key: "n6", value: "0.33" },
+  { key: "n7", value: "0.3" },
+  { key: "n8", value: "0.27" },
+  { key: "n9", value: "0.25" },
+  { key: "n10", value: "0.23" },
+  { key: "n11", value: "0.22" },
+  { key: "n12", value: "0.2" },
+];
+
 class SteinerChain {
-  constructor(_r, _x, _y, offset, sw, color) {
-    this.r = _r;
-    this.x = _x;
-    this.y = _y;
-    this.offset = offset;
+  constructor(r, x, y, sw, color) {
+    this.x = x;
+    this.y = y;
+    this.r = r;
     this.allCircles = [];
     this.queue = [];
-    this.n = 6;
+    this.n = 12;
     let c1 = new GasketCircle(-1 / this.r, this.x, this.y);
-    let r2 = this.r / 3;
+    this.allCircles.push(c1);
     let v = p5.Vector.fromAngle(random(TWO_PI));
-    v.setMag(this.r - r2);
-    let c2 = new GasketCircle(1 / r2, this.x + this.offset, this.y+ this.offset);
-    let r3 = v.mag() - r2;
-    this.allCircles.push(c1, c2);
-    this.queue = [c1, c2];
+    let r3 = this.r * 0.2; // n= 3, 0.46
     for (let i = 0; i < this.n; i++) {
       v.rotate(TWO_PI / this.n);
-      v.setMag(c1.radius - r3);
-      let c = new GasketCircle(1 / r3, this.x + v.x + this.offset, this.y + v.y + this.offset);
+      v.setMag(this.r - r3);
+      let c = new GasketCircle(1 / r3, this.x + v.x, this.y + v.y);
       this.allCircles.push(c);
       this.queue.push(c);
-      //console.log(this.queue);
     }
+    let r2 = c1.radius - 2 * r3;
+    v.setMag(c1.radius - r2);
+    let c2 = new GasketCircle(1 / r2, this.x, this.y);
+    this.allCircles.push(c2);
+    this.queue.push(c2);
     this.color = color;
     this.recursed = false;
     this.startC = this.allCircles.shift();
@@ -174,6 +189,8 @@ class ChainCircle {
     let sw2 = map(this.radius, 0, width / 2, 1, 5);
     strokeWeight(sw2);
     noFill();
+    line(width / 2, height / 2, this.center.a, this.center.b);
+    strokeWeight(10);
     circle(this.center.a, this.center.b, this.radius * 2);
   }
 

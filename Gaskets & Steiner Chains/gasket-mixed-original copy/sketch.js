@@ -23,7 +23,7 @@ function setup() {
     let c = circleArray[index];
 
     // Replace a gasket with a chain
-    chains.push(new SteinerChain(c.radius, c.center.a, c.center.b, 1, col));
+    chains.push(new SteinerChain(c.radius, c.center.a, c.center.b, 0, 1, col));
     // Find the original gasket and delete
     circleArray.splice(index, 1);
   }
@@ -41,7 +41,16 @@ function setup() {
     for (let j = 0; j < newArray.length; j++) {
       let c = newArray[j];
       if (c.radius > 10) {
-        chains.push(new SteinerChain(c.radius, c.center.a, c.center.b, 2, col));
+        chains.push(
+          new SteinerChain(
+            c.radius,
+            c.center.a,
+            c.center.b,
+            c.radius / 10,
+            2,
+            col
+          )
+        );
       }
     }
   }
