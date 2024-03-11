@@ -32,7 +32,7 @@ function draw() {
   allCircles[0].showCircle();
 
   for (let i = 1; i < allCircles.length; i++) {
-    if (allCircles[i].radius > 30) {
+    if (allCircles[i].radius > 20) {
       allCircles[i].showLogo();
     } else {
       allCircles[i].showCircle();
@@ -41,7 +41,7 @@ function draw() {
 }
 
 function mousePressed() {
-  save("apollonian.jpg");
+  save("logo.jpg");
 }
 // Start of functions
 function validate(c4, c1, c2, c3) {

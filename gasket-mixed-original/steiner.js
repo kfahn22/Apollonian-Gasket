@@ -38,15 +38,15 @@ class SteinerChain {
     this.r = r;
     this.allCircles = [];
     this.queue = [];
-    this.n = 9;
+    this.n = 6;
     let c1 = new GasketCircle(-1 / this.r, this.x, this.y);
-    let r2 = c1.radius / 2;
-    //let r2 = this.r * 0.2;
+    //let r2 = c1.radius / 3;
+    let r2 = this.r / 3;
     let v = p5.Vector.fromAngle(random(TWO_PI));
     //v.setMag(c1.radius - r2);
-    v.setMag(c1.radius - r2);
+    v.setMag(this.r - r2);
     let c2 = new GasketCircle(1 / r2, this.x, this.y);
-    let r3 = (c1.radius - r2)/2;
+    let r3 = v.mag() - r2;
     this.allCircles.push(c1, c2);
     //this.queue = [c1, c2];
     for (let i = 0; i < this.n; i++) {

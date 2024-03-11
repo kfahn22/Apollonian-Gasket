@@ -1,6 +1,9 @@
 // https://github.com/CodingTrain/Logo-Animations/tree/main/public/gasketLogo
 
 //const epsilon = 0.1;
+function mousePressed() {
+  save("flower.jpg");
+}
 
 function isTangent(c1, c2) {
   let d = c1.dist(c2);
@@ -38,15 +41,15 @@ class SteinerChain {
     this.r = r;
     this.allCircles = [];
     this.queue = [];
-    this.n = 9;
+    this.n = 16;
     let c1 = new GasketCircle(-1 / this.r, this.x, this.y);
-    let r2 = c1.radius / 2;
+    let r2 = c1.radius / 6;
     //let r2 = this.r * 0.2;
     let v = p5.Vector.fromAngle(random(TWO_PI));
     //v.setMag(c1.radius - r2);
-    v.setMag(c1.radius - r2);
+    v.setMag(c1.radius - r2*2);
     let c2 = new GasketCircle(1 / r2, this.x, this.y);
-    let r3 = (c1.radius - r2)/2;
+    let r3 = (c1.radius - 4*r2) /2;
     this.allCircles.push(c1, c2);
     //this.queue = [c1, c2];
     for (let i = 0; i < this.n; i++) {
@@ -175,6 +178,8 @@ class ChainCircle {
     let sw2 = map(this.radius, 0, width / 2, 1, 5);
     strokeWeight(sw2);
     noFill();
+    line(width/2, height/2, this.center.a, this.center.b);
+    strokeWeight(10);
     circle(this.center.a, this.center.b, this.radius * 2);
   }
 

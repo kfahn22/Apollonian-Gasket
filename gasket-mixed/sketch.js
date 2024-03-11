@@ -1,5 +1,6 @@
 let chains = [];
-let gaskets = [];
+let gasketChains = [];
+
 let colorsCT = [
   "#70327E",
   "#9253A1",
@@ -13,70 +14,17 @@ let colorsCT = [
 
 function setup() {
   createCanvas(400, 400);
-  let col = color(random(colorsCT));
-  gaskets.push(new Gasket(width / 2, width / 2, height / 2, 3, col));
-  let circleArray = gaskets[0].allCircles;
-  let len = circleArray.length;
-  for (let i = 0; i < len / 2; i++) {
-    // choose a random gasket to replace
-    let index = int(random(1, circleArray.length));
-    let c = circleArray[index];
-
-    // Replace a gasket with a chain
-    chains.push(
-      new SteinerChain(
-        c.radius,
-        c.center.a,
-        c.center.b,
-        1,
-        color(random(colorsCT))
-      )
-    );
-    // Find the original gasket and delete
-    circleArray.splice(index, 1);
-  }
-
-  for (let n = 0; n < 1; n++) {
-    for (let i = gaskets.length - 1; i >= 0; i--) {
-      let nextG = gaskets[i].recurse();
-      if (nextG) gaskets.push(...nextG);
-    }
-  }
-  console.log(chains.length);
-
-  for (let i = 0; i < chains.length / 2; i++) {
-    let newArray = chains[i].allCircles;
-    for (let j = 0; j < newArray.length; j++) {
-      let c = newArray[j];
-      if (c.radius > 10) {
-        chains.push(
-          new SteinerChain(
-            c.radius,
-            c.center.a,
-            c.center.b,
-            2,
-            color(colorsCT[0])
-          )
-        );
-      }
-    }
-  }
+  let col = random(colorsCT);
+  gasketChains.push(new GasketChain(width / 2, width / 2, height / 2, 3, col));
+  //console.log(gasketChains[0]);
 }
 
 function draw() {
-  background(255);
+  background("#66D334");
 
   scale(1);
 
-  for (let gasket of gaskets) {
+  for (gasket of gasketChains) {
     gasket.show();
-    //gasket.nextGeneration();
-  }
-  //translate(width/2, height/2)
-  for (let chain of chains) {
-    push();
-    //translate(chain.x, chain.y);
-    chain.show();
-    pop();
   }
 }

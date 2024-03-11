@@ -15,7 +15,7 @@ function setup() {
   createCanvas(400, 400);
   let col = color("#2DC5F4");
   chains.push(
-    new SteinerChain(width / 2, width / 2, height / 2, 3, color("#A42963"))
+    new SteinerChain(width / 2, width / 2, height / 2, 3, color("#2DC5F4"))
   );
 
   let circleArray = chains[0].allCircles;
@@ -25,7 +25,7 @@ function setup() {
     console.log(c);
     // Replace a gasket with a chain
     gaskets.push(
-      new Gasket(c.center.a, c.center.b, c.radius, 3, color("#F063A4"))
+      new Gasket(c.center.a, c.center.b, c.radius, 3, color("#2DC5F4"))
     );
   }
 

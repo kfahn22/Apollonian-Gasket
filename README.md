@@ -69,6 +69,13 @@ The code for the nested version is from [Richard Bourne](https://openprocessing.
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Nested Apollonian gasket</b></sub></a></td>
     </tr>
+
+  <tr>
+      <td align="center"><a href=""> <img class="img" src="assets/mix.jpg" alt="Apollonian gasket Steiner chains" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with Steiner chains</b></sub></a></td>
+      <td align="center"><a href=https://editor.p5js.org/kfahn/sketches/GjCcOhd5v"> <img class="img" src="assets/logo.jpg" alt="Apollonian gasket with Coding Train logo" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with Coding Train logo</b></sub></a></td>
+    
+  </tr>
+    
  </tbody>
 </table>
 
