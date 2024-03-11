@@ -46,7 +46,7 @@ function validate(c4, c1, c2, c3, allCircles) {
 //   { key: "11", value: "0.22" },
 //   { key: "12", value: "0.2" },
 // ];
-// n = 7, 3 * this.n
+
 class SteinerChain {
   constructor(r, x, y, n, color) {
     this.x = x;
@@ -54,36 +54,22 @@ class SteinerChain {
     this.r = r;
     this.allCircles = [];
     this.queue = [];
-    this.n = 7;
+    this.n = n;
+    this.adj = TWO_PI/this.n;
     let c1 = new GasketCircle(-1 / this.r, this.x, this.y);
     this.allCircles.push(c1);
-    let r2 = this.r / 2.5;
     let v = p5.Vector.fromAngle(random(TWO_PI));
-    //v.setMag(c1.radius - r2);
-    v.setMag(this.r - r2);
-    let c2 = new GasketCircle(1 / r2, this.x, this.y);
-    let r3;
-    //let r3 = this.r * this.adj;
+    let r3 = this.r * this.adj; 
     for (let i = 0; i < this.n; i++) {
-      let theta = PI / this.n;
-      //console.log(sin(theta))
-      v.rotate((2 * PI) / this.n);
-
-      // formula from "Circle patterns in Gothic architecture paper" -- not sure what I am doing wrong
-      //r3 = 1/(1 + sin θ ).
-      r3 = (r2 * sin(theta)) / (1 - sin(theta));
-
-      //console.log(r3)
+      v.rotate(TWO_PI / this.n);
       v.setMag(this.r - r3);
-
       let c = new GasketCircle(1 / r3, this.x + v.x, this.y + v.y);
-
       this.allCircles.push(c);
       this.queue.push(c);
     }
-    // let r2 = c1.radius - 2 * r3;
-    // v.setMag(c1.radius - r2);
-    // let c2 = new GasketCircle(1 / r2, this.x, this.y);
+    let r2 = c1.radius - 2 * r3;
+    v.setMag(c1.radius - r2);
+    let c2 = new GasketCircle(1 / r2, this.x, this.y);
     this.allCircles.push(c2);
     this.queue.push(c2);
     this.color = color;

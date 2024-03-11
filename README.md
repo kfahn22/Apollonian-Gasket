@@ -94,6 +94,7 @@ The code for the nested version is from [Richard Bourne](https://openprocessing.
 - [A Tisket, a Tasket, an Apollonian Gasket](https://www.americanscientist.org/article/a-tisket-a-tasket-an-apollonian-gasket)
 - [A Visual Solution to the Apollonian Problem](http://laelcosta.com/demo3.js)
 - [Circle Packing Explorations](https://archive.bridgesmathart.org/2013/bridges2013-399.pdf)
+- [Circle patterns in Gothic architecture](https://archive.bridgesmathart.org/2012/bridges2012-133.pdf)
 - [Descartes Circle Theorem, Steiner Porism, and Spherical Designs](https://arxiv.org/pdf/1811.08030.pdf)
 - [Geometry Unbound](https://kskedlaya.org/geometryunbound/gu-060118.pdf)
 - [Single Line Apollonian Gaskets:
@@ -101,6 +102,7 @@ The code for the nested version is from [Richard Bourne](https://openprocessing.
 - [Single Line Apollonian Gaskets for Fashion](https://archive.bridgesmathart.org/2022/bridges2022-119.pdf)
 - [Soddy Circles](https://mathworld.wolfram.com/SoddyCircles.html)
 - [Steiner Chains](https://en.wikipedia.org/wiki/Steiner_chain)
+- [Mathworld reference on Steiner Chains](https://mathworld.wolfram.com/SteinerChain.html)
 - [The Apollonian Gasket](https://www3.math.tu-berlin.de/geometrie/Lehre/WS12/MathVis/resources/projects/steinertStruempelSlides.pdf)
 - [Vieta formula](https://en.wikipedia.org/wiki/Vieta%27s_formulas)
 
