@@ -58,7 +58,7 @@ class SteinerChain {
     let c1 = new GasketCircle(-1 / this.r, this.x, this.y);
     this.allCircles.push(c1);
     let r2 = this.r / 2.05;
-    let v = p5.Vector.fromAngle(random(TWO_PI));
+    let v = p5.Vector.fromAngle(0);
     //v.setMag(c1.radius - r2);
     v.setMag(this.r - r2);
     let c2 = new GasketCircle(1 / r2, this.x, this.y);

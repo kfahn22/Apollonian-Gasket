@@ -23,6 +23,8 @@ let dict = [
   { key: "11", value: "0.22" },
   { key: "12", value: "0.2" },
 ];
+let n = 9;
+
 function setup() {
   createCanvas(400, 400);
   let col = color("#2DC5F4");
@@ -46,7 +48,7 @@ function setup() {
     // Replace a gasket with a chain
 
     gaskets.push(
-      new Gasket(c.center.a, c.center.b, c.radius, color("#2DC5F4"))
+      new Gasket(c.center.a, c.center.b, c.radius, i+1, 3)
     );
   }
 
@@ -62,20 +64,19 @@ function draw() {
   background(0);
 
   scale(1);
-
+  
   for (let i = 0; i < gaskets.length; i++) {
     gaskets[i].show();
-    //gasket.nextGeneration();
   }
-  push()
-  noFill()
-  //chains[0].show();
-  // for (let i = 1; i < chains.length; i++) {
-  //   chains[i].show();
+  // push()
+  // noFill()
+  // //chains[0].show();
+  // // for (let i = 1; i < chains.length; i++) {
+  // //   chains[i].show();
     
-  // }
-  stroke(31,19,0);
-  strokeWeight(3);
-  //circle(width / 2, height / 2, (width / 2) * 2);
-  pop();
+  // // }
+  // stroke(31,19,0);
+  // strokeWeight(3);
+  // //circle(width / 2, height / 2, (width / 2) * 2);
+  // pop();
 }

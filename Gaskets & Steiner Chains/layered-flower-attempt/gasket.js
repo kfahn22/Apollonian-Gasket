@@ -32,27 +32,26 @@ function validate(c4, c1, c2, c3, allCircles) {
 }
 
 class Gasket {
-  constructor(x, y, r, sw, color) {
+  constructor(x, y, r, index, sw) {
     this.x = x;
     this.y = y;
     this.r = r;
-    this.n = 9;
+    this.index = index;
     this.allCircles = [];
     this.queue = [];
-    //this.v = [];
-    let c1 = new GasketCircle(-1 / this.r, this.x, this.y);
+    let c1 = new GasketCircle(-1 / this.r, this.x, this.y, 0);
     let c2, c3;
     let r2 = c1.radius / 3;
     let v = p5.Vector.fromAngle(0);
     v.setMag(c1.radius - r2);
-    c2 = new GasketCircle(1 / r2, this.x + v.x, this.y + v.y);
+    c2 = new GasketCircle(1 / r2, this.x + v.x, this.y + v.y, 0);
     let r3 = v.mag();
     v.rotate(PI);
     v.setMag(c1.radius - r3);
-    c3 = new GasketCircle(1 / r3, this.x + v.x, this.y + v.y);
+    c3 = new GasketCircle(1 / r3, this.x + v.x, this.y + v.y, this.index);
     this.allCircles = [c1, c2, c3];
     this.queue = [[c1, c2, c3]];
-    this.color = random(colorsCT);
+    //this.color = random(colorsCT);
     // this.color = color;
     this.recursed = false;
     this.startC = [c2, c3];
@@ -145,10 +144,11 @@ function descartes(c1, c2, c3) {
 }
 
 class GasketCircle {
-  constructor(bend, x, y) {
+  constructor(bend, x, y, i) {
     this.center = new Complex(x, y);
     this.bend = bend;
     this.radius = abs(1 / this.bend);
+    this.index = i;
   }
 
   show(c) {
