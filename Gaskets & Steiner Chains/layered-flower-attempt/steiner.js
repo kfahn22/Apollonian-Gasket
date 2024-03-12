@@ -127,11 +127,11 @@ class SteinerChain {
     this.queue = nextQueue;
   }
 
-  show() {
-    for (let c of this.allCircles) {
-      c.show(this.color, this.sw);
-    }
-  }
+  // show() {
+  //   for (let c of this.allCircles) {
+  //     c.show(this.color, this.sw);
+  //   }
+  // }
 }
 
 function complexDescartes(c1, c2, c3, k4) {
