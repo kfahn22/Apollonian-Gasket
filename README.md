@@ -61,7 +61,7 @@ The code for the nested version is from [Richard Bourne](https://openprocessing.
 
 <tr>
       <td align="center"><a href=""> <img class="img" src="assets/apollonian-chrysanthemum.jpg" alt="Apollonian gasket with flowers" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with flowers</b></sub></a></td>
-      <td align="center"><a href=""> <img class="img" src="assets/apollonian-chrysanthemum.jpg" alt="Apollonian gasket with butterflies" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with butterflies</b></sub></a></td>
+      <td align="center"><a href=""> <img class="img" src="assets/apollonian-butterfly.jpg" alt="Apollonian gasket with butterflies" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with butterflies</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/apollonian-4circles.png" alt="Circle inversion with 4 initial circles" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Apollonian gasket with 4 initial circles</b></sub></a></td>
