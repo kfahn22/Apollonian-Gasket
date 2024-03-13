@@ -1,14 +1,12 @@
 let allCircles = [];
 let queue = [];
 let epsilon = 0.01;
-let angle = 0;
 
 function setup() {
   createCanvas(600, 600);
-  angleMode(DEGREES);
   let c1 = new Circle(-1 / (width / 2), width / 2, height / 2);
   let r2 = random(100, c1.radius / 2);
-  let v = p5.Vector.fromAngle(random(360));
+  let v = p5.Vector.fromAngle(random(TWO_PI));
   v.setMag(c1.radius - r2);
   let c2 = new Circle(1 / r2, width / 2 + v.x, height / 2 + v.y);
   let r3 = v.mag();
@@ -20,7 +18,11 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+  //background(66,32,64);
+
+  background(83,59,77); //eggplant
+  // background(232,237,223); // cream
+  //background(250, 164, 189);  // pink
   let len1 = allCircles.length;
   nextGeneration();
   let len2 = allCircles.length;
@@ -28,20 +30,16 @@ function draw() {
     console.log("done");
     noLoop();
   }
-  // Draw first circle
-  //stroke(255);
-  strokeWeight(2);
-  //allCircles[0].showCircle();
 
+  //allCircles[0].showCircle();
   for (let i = 1; i < allCircles.length; i++) {
-    if (allCircles[i].radius > 8) {
-      allCircles[i].showGear(angle);
-      allCircles[i].showClock();
+    if (allCircles[i].radius > 10) {
+      allCircles[i].showFlower();
+      allCircles[i].showPhyllotaxis();
     } else {
-      allCircles[i].showGear(angle);
+      allCircles[i].showCircle();
     }
   }
-  angle += 1;
 }
 
 function mousePressed() {

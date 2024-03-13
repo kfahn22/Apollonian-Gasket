@@ -94,7 +94,8 @@ p5.prototype.clock = function (_angle, _radius, _distance) {
   let hr = hour();
   let mn = minute();
   let sc = second();
-  let sw = pow(_radius, 0.2);
+  //let sw = pow(_radius, 0.2);
+  let sw = map(Math.log2(this.radius), 3.4, Math.log2(100), 0.3, 6);
   strokeWeight(sw);
   this.push();
   //translate(this.x,this.y);

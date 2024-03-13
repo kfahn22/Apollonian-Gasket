@@ -19,7 +19,7 @@ function setup() {
 
 function draw() {
   background(66,32,64);
-  //background(5,5,32);
+
   let len1 = allCircles.length;
   nextGeneration();
   let len2 = allCircles.length;
@@ -28,9 +28,14 @@ function draw() {
     noLoop();
   }
 
-  allCircles[0].showCircle();
+  //allCircles[0].showCircle();
   for (let i = 1; i < allCircles.length; i++) {
-    allCircles[i].showFlower();
+    if (allCircles[i].radius > 10) {
+      allCircles[i].showFlower();
+      allCircles[i].showPhyllotaxis();
+    } else {
+      allCircles[i].showCircle();
+    }
   }
 }
 

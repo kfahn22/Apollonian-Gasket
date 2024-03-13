@@ -6,9 +6,9 @@ class Logo {
     // this.logoH = 135;
   }
 
-  logo() {
+  logo(sw) {
     stroke("#70327E");
-    strokeWeight(4);
+    strokeWeight(sw);
     line(this.x + 13, this.y + 66, this.x + 13, this.y + 25);
     line(this.x + 13, this.y + 25, this.x, this.y + 25);
     line(this.x, this.y + 25, this.x, this.y);
@@ -17,14 +17,14 @@ class Logo {
 
     // chimney
     stroke("#30C5F3");
-    strokeWeight(4);
+    strokeWeight(sw);
     line(this.x + 139, this.y + 46, this.x + 131, this.y);
     line(this.x + 131, this.y, this.x + 182, this.y);
     line(this.x + 182, this.y, this.x + 175, this.y + 46);
 
     //front
     stroke("#EF63A4");
-    strokeWeight(4);
+    strokeWeight(sw);
     line(this.x + 223, this.y + 154, this.x + 199, this.y + 125);
     line(this.x + 199, this.y + 125, this.x + 215, this.y + 83);
     line(this.x + 215, this.y + 83, this.x + 199, this.y + 46);
@@ -32,21 +32,22 @@ class Logo {
     // back wheel
     noFill();
     stroke("#70327E");
+    strokeWeight(sw);
     //circle(this.x+50,this.y+123, 53);
     circle(this.x + 54, this.y + 123, 105);
 
     //frontwheel1
     stroke("#30C5F3");
-    strokeWeight(4);
+    strokeWeight(sw);
     circle(this.x + 131, this.y + 158, 36);
 
     //frontwheel1
-    strokeWeight(4);
+    strokeWeight(sw);
     circle(this.x + 182, this.y + 158, 36);
 
     // lines
     stroke("#F89E4F");
-    strokeWeight(4);
+    strokeWeight(sw);
     line(this.x + 177, this.y + 66, this.x + 177, this.y + 101);
     line(this.x + 157, this.y + 66, this.x + 157, this.y + 101);
     line(this.x + 137, this.y + 66, this.x + 137, this.y + 101);

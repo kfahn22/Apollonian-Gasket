@@ -41,29 +41,35 @@ class Gasket {
     this.queue = [];
     let c1 = new GasketCircle(-1 / this.r, this.x, this.y, 0);
     let c2, c3;
-    let r2 = c1.radius / 2;
-    // let r2 = random(c1.radius/16, c1.radius / 2);
+    let r2 = c1.radius / 3;
+    //let r2 = random(c1.radius/8, c1.radius / 2);
     //let angle = map(index/9, 0, 1, 0, TWO_PI);
-    let v = p5.Vector.fromAngle(random((-PI * 16) / 18, PI));
-    // let v = [];
-    // for (let i = 0; i < 9; i++) {
-    //   for (let j = 18; j > -16; j -= 4)
-    //     {
-    //       //v.push(p5.Vector.fromAngle((PI * j) / 18));
-    //       v.push(p5.Vector.fromAngle(-PI * 16/18, PI));
-    //       v[i].setMag(c1.radius - r2);
-    //       //console.log(v)
-    //       c2 = new GasketCircle(1 / r2, this.x + v[i].x, this.y + v[i].y, 0);
+    let v = [];
+    for (let i = 0; i < 9; i++)
+      for (let j = 18; j > -16; j -= 4) {
+        {
+          v.push(p5.Vector.fromAngle((PI * j) / 18));
 
-    //let v = p5.Vector.fromAngle((PI * 0) / 18);
-    v.setMag(c1.radius - r2);
-    c2 = new GasketCircle(1 / r2, this.x + v.x, this.y + v.y, 0);
+          v[i].setMag(c1.radius - r2);
+          //console.log(v)
+          c2 = new GasketCircle(1 / r2, this.x + v[i].x, this.y + v[i].y, 0);
+        
 
-    let r3 = v.mag();
-    v.rotate(PI);
-    v.setMag(c1.radius - r3);
-    c3 = new GasketCircle(1 / r3, this.x + v.x, this.y + v.y, this.index);
+        // let v = p5.Vector.fromAngle((PI * 0) / 18);
+        // v.setMag(c1.radius - r2);
+        // c2 = new GasketCircle(1 / r2, this.x + v.x, this.y + v.y, 0);
 
+        let r3 = v[i].mag();
+        v[i].rotate(PI);
+        v[i].setMag(c1.radius - r3);
+        c3 = new GasketCircle(
+          1 / r3,
+          this.x + v[i].x,
+          this.y + v[i].y,
+          this.index
+        );
+      }
+    }
     this.allCircles = [c1, c2, c3];
     this.queue = [[c1, c2, c3]];
     //this.color = random(colorsCT);

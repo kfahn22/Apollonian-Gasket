@@ -36,21 +36,35 @@ class Circle {
     translate((this.center.x = x), (this.center.y = y));
   }
 
-  showButterfly() {
-    stroke(this.color);
-    let sw = map(Math.log2(this.radius), 3.4, Math.log2(100), 0.5, 3);
-    strokeWeight(sw)
-    //strokeWeight(0.2*pow(this.radius, 0.4));
+  showCircle() {
+    stroke(107, 191, 89);
+    noFill();
+    circle(this.center.a, this.center.b, this.radius * 2);
+  }
+
+  showFlower() {
+    //stroke(this.color);
+    //stroke(255, 255, 255, 100);
+    stroke(250,164,189, 100);
+    let sw = map(Math.log2(this.radius), 3.4, Math.log2(100), 0.3, 2);
+    strokeWeight(sw);
+    //strokeWeight(0.2*pow(this.radius, 0.3));
+    //fill(this.color);
     push();
     setCenter(this.center.a, this.center.b);
-    polarButterfly(0, this.radius * 2, this.radius);
+    polarFlower(0, this.radius * 2, this.radius);
     pop();
   }
 
-  showCircle() {
-    stroke(0);
-    noFill();
-    circle(this.center.a, this.center.b, this.radius * 2);
+  showPhyllotaxis() {
+    let sw = map(Math.log2(this.radius), 3.4, Math.log2(100), 0.3, 2);
+    strokeWeight(sw);
+    push();
+    fill(245,100,169);
+    noStroke();
+    setCenter(this.center.a, this.center.b);
+    phyllotaxis(0, this.radius * 2, this.radius);
+    pop();
   }
 
   dist(other) {

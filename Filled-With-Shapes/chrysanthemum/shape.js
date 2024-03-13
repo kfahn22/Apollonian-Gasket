@@ -48,79 +48,30 @@ class Circle {
   // }
 
   showCircle() {
-    stroke(0);
+    stroke(255);
     noFill();
     circle(this.center.a, this.center.b, this.radius * 2);
   }
 
-  showClock() {
-    stroke(this.color);
-    push();
-    setCenter(this.center.a, this.center.b);
-    clock(-90, this.radius * 2, this.radius);
-    circle(0, 0, this.radius * 1.99);
-    pop();
-  }
-
   showFlower() {
-    //stroke(this.color);
     stroke(255, 255, 255, 100);
-    strokeWeight(0.2*pow(this.radius, 0.3));
-    //fill(this.color);
+    let sw = map(Math.log2(this.radius), 3.4, Math.log2(100), 0.3, 2);
+    strokeWeight(sw);
+    //strokeWeight(0.2*pow(this.radius, 0.3));
     push();
     setCenter(this.center.a, this.center.b);
     polarFlower(0, this.radius * 2, this.radius);
     pop();
   }
 
-  showGear() {
-    stroke(this.color);
-    //fill(this.color);
-    push();
-    setCenter(this.center.a, this.center.b);
-    polarGear(0, this.radius * 2, this.radius);
-    pop();
-  }
-
   showPhyllotaxis() {
-    //stroke(255)
-    // strokeWeight(0.05);
-    fill(this.color);
+    let sw = map(Math.log2(this.radius), 3.4, Math.log2(100), 0.3, 2);
+    strokeWeight(sw);
     push();
+    fill(221,183,113);
+    noStroke();
     setCenter(this.center.a, this.center.b);
     phyllotaxis(0, this.radius * 2, this.radius);
-    pop();
-  }
-
-  showPolygon() {
-    //stroke(255, 0, 0, 50);
-    noStroke();
-    fill(this.color);
-    push();
-    setCenter(this.center.a, this.center.b);
-    polarPolygon(6, this.radius * 2, this.radius);
-    pop();
-  }
-
-  showTriangles() {
-    noStroke();
-    fill(this.color);
-    //stroke(this.color);
-    push();
-    setCenter(this.center.a, this.center.b);
-    shiftRotate(0, 0);
-    polarTriangles(6, this.radius / 3, this.radius / 1.5);
-    pop();
-  }
-
-  showPentagons() {
-    noStroke();
-    fill(this.color);
-    //stroke(this.color);
-    push();
-    setCenter(this.center.a, this.center.b);
-    shiftRotate(0, 0);
-    polarPentagons(6, this.radius / 3, this.radius / 1.5);
     pop();
   }
 

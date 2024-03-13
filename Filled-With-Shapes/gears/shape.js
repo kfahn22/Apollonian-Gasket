@@ -37,20 +37,34 @@ class Circle {
   }
 
   showCircle() {
-    stroke(0);
+    let sw = map(Math.log2(this.radius), 3.4, Math.log2(100), 0.3, 4);
+    strokeWeight(sw);
+    stroke(this.color);
     noFill();
     circle(this.center.a, this.center.b, this.radius * 2);
   }
 
   showGear(angle) {
     stroke(this.color);
-    strokeWeight(0.5 * pow(this.radius, 0.3));
+    let sw = map(Math.log2(this.radius), 3.4, Math.log2(100), 0.3, 4);
+    strokeWeight(sw);
+    //strokeWeight(0.5 * pow(this.radius, 0.3));
     push();
     setCenter(this.center.a, this.center.b);
     polarGear(0, this.radius * 2, this.radius);
     pop();
   }
 
+  showClock() {
+    let sw = map(Math.log2(this.radius), 3.4, Math.log2(100), 0.3, 6);
+    strokeWeight(sw);
+    stroke(this.color);
+    push();
+    setCenter(this.center.a, this.center.b);
+    clock(-90, this.radius * 2, this.radius);
+    //circle(0, 0, this.radius * 1.99);
+    pop();
+  }
   dist(other) {
     return dist(this.center.a, this.center.b, other.center.a, other.center.b);
   }
