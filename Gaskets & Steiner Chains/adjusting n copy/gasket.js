@@ -50,8 +50,8 @@ class Gasket {
     let c3 = new GasketCircle(1 / r3, this.x + v.x, this.y + v.y);
     this.allCircles = [c1, c2, c3];
     this.queue = [[c1, c2, c3]];
-    //this.color = color(random(colorsCT));
-    this.color = color;
+    this.color = random(colorsCT);
+    // this.color = color;
     this.recursed = false;
     this.startC = [c2, c3];
     this.sw = sw;
