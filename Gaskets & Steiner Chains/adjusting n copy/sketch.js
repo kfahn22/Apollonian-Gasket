@@ -11,18 +11,18 @@ let colorsCT = [
   "#2DC5F4",
 ];
 // Adjustment factor for different number of initial circles
-let dict = [
-  { key: "3", value: "0.46" },
-  { key: "4", value: "0.41" },
-  { key: "5", value: "0.37" },
-  { key: "6", value: "0.33" },
-  { key: "7", value: "0.3" },
-  { key: "8", value: "0.27" },
-  { key: "9", value: "0.25" },
-  { key: "10", value: "0.23" },
-  { key: "11", value: "0.22" },
-  { key: "12", value: "0.2" },
-];
+// let dict = [
+//   { key: "3", value: "0.071" },
+//   { key: "4", value: "0.17" },
+//   { key: "5", value: "0.26" },
+//   { key: "6", value: "0.33" },
+//   { key: "7", value: "0.39" },
+//   { key: "8", value: "0.44" },
+//   { key: "9", value: "0.49" },
+//   { key: "10", value: "0.53" },
+//   { key: "11", value: "0.56" },
+//   { key: "12", value: "0.58" },
+// ];
 function setup() {
   createCanvas(400, 400);
   let col = color("#2DC5F4");

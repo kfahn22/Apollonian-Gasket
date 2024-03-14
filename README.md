@@ -19,7 +19,7 @@ Descartes' formula is a mathematical formula that helps us understand the relati
 
 Here's the idea: for any three circles that are mutually tangent (meaning they touch each other externally), there's a neat formula that relates the curvatures (or how "bendy" they are) of these circles. The formula is:
 
-$(k_1 + k_2 + k_3)^2 = 2(k_1^2 + k_2^2 + k_3^2)$
+$(k_1 + k_2 + k_3  + k_4)^2 = 2(k_1^2 + k_2^2 + k_3^2 + k_4^2)$
 
 Here, $k1$, $k2$, and $k3$ are the curvatures of the circles. The curvature of a circle is just the reciprocal of its radius. So if you have a big circle with radius $R$, its curvature is $1/R$.
 
