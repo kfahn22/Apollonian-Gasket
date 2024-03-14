@@ -51,7 +51,7 @@ class Circle {
     //strokeWeight(0.5 * pow(this.radius, 0.3));
     push();
     setCenter(this.center.a, this.center.b);
-    polarGear(0, this.radius * 2, this.radius);
+    polarGear(0, this.radius * 2, this.radius, 20);
     pop();
   }
 

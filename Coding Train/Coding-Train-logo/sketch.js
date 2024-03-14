@@ -5,7 +5,7 @@ let fillCircle = false;
 
 function setup() {
   createCanvas(600, 600);
-  
+
   let c1 = new Circle(-1 / (width / 2), width / 2, height / 2);
   let r2 = random(100, c1.radius / 2);
   //let r2 = c1.radius/4;
@@ -22,7 +22,7 @@ function setup() {
 
 function draw() {
   background(255);
-  
+
   let len1 = allCircles.length;
   nextGeneration();
   let len2 = allCircles.length;
@@ -44,9 +44,10 @@ function draw() {
   }
 }
 
-function mousePressed() {
-  save("logo.jpg");
-}
+// function mousePressed() {
+//   save("logo.jpg");
+// }
+
 // Start of functions
 function validate(c4, c1, c2, c3) {
   if (c4.radius < 2) return false;

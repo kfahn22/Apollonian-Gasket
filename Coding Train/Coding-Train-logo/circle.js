@@ -34,18 +34,20 @@ class Circle {
     translate((this.center.x = x), (this.center.y = y));
   }
 
-  // figure out size of logo
   showLogo() {
     noFill();
+    // Scale logo because size is hardcoded
     let sc = map(this.radius, 0, width / 2, 0, 1.7);
     circle(this.center.a, this.center.b, this.radius * 2);
     push();
+    // Slight adjustment to try to center logo in center of circle
     translate(
       this.center.a - this.radius * 0.54,
       this.center.b - this.radius * 0.54
     );
-    scale(sc);
+    // Adjust strokeweight to radius of circle
     let sw = map(Math.log2(this.radius), 3.4, Math.log2(100), 0.3, 6);
+    scale(sc);
     this.logo.logo(sw);
     pop();
   }
@@ -55,7 +57,7 @@ class Circle {
     //lerp between purple and orange
     // let col = color("#F89E4F");
     // let col2 = color("#70327E");
-    
+
     let col = color("#30C5F3");
     let col2 = color("#EF63A4");
     let mycol = lerpColor(
@@ -71,17 +73,8 @@ class Circle {
       circle(this.center.a, this.center.b, this.radius * 2);
     } else {
       fill(mycol);
-      //noStroke();
       circle(this.center.a, this.center.b, this.radius * 1.8);
     }
-    // if (fillCircle) {
-    //   fill(this.color);
-    //   noStroke();
-    //   circle(this.center.a, this.center.b, this.radius * 1.7);
-    // } else {
-    //   noFill();
-    //   circle(this.center.a, this.center.b, this.radius * 2);
-    // }
   }
 
   dist(other) {
