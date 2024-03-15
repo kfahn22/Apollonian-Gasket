@@ -30,7 +30,7 @@ function validate(c4, c1, c2, c3, allCircles) {
 }
 
 class SteinerChain {
-  constructor(r, x, y, n, color) {
+  constructor(r, x, y, n, col) {
     this.x = x;
     this.y = y;
     this.r = r;
@@ -56,7 +56,7 @@ class SteinerChain {
     let c3 = new GasketCircle(1 / r3, this.x, this.y);
     this.allCircles.push(c3);
     this.queue.push(c3);
-    this.color = color;
+    this.color = col;
     this.recursed = false;
     this.startC = this.allCircles.shift();
 
