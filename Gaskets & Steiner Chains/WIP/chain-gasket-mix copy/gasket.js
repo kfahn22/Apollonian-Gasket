@@ -32,26 +32,28 @@ function validate(c4, c1, c2, c3, allCircles) {
 }
 
 class Gasket {
-  constructor(x, y, r, sw, color) {
+  constructor(x, y, r, sw, col1, col2) {
     this.x = x;
     this.y = y;
     this.r = r;
     this.allCircles = [];
     this.queue = [];
-    let c1 = new GasketCircle(-1 / this.r, this.x, this.y);
+    this.col1 = col1;
+    this.col2 = col2;
+    let c1 = new GasketCircle(-1 / this.r, this.x, this.y, this.col1);
     let r2 = random(c1.radius / 4, c1.radius / 2);
     //console.log(c1);
     let v = p5.Vector.fromAngle(random(TWO_PI));
     v.setMag(c1.radius - r2);
-    let c2 = new GasketCircle(1 / r2, this.x + v.x, this.y + v.y);
+    let c2 = new GasketCircle(1 / r2, this.x + v.x, this.y + v.y, this.col1);
     let r3 = v.mag();
     v.rotate(PI);
     v.setMag(c1.radius - r3);
-    let c3 = new GasketCircle(1 / r3, this.x + v.x, this.y + v.y);
+    let c3 = new GasketCircle(1 / r3, this.x + v.x, this.y + v.y, this.col1);
     this.allCircles = [c1, c2, c3];
     this.queue = [[c1, c2, c3]];
     //this.color = color(random(colorsCT));
-    this.color = color;
+
     this.recursed = false;
     this.startC = [c2, c3];
     this.sw = sw;
@@ -71,7 +73,14 @@ class Gasket {
       let c = this.allCircles[i];
       if (c.radius < 4) continue;
       newGaskets.push(
-        new Gasket(c.center.a, c.center.b, c.radius, this.sw / 16, this.color)
+        new Gasket(
+          c.center.a,
+          c.center.b,
+          c.radius,
+          this.sw / 16,
+          this.col1,
+          this.col2
+        )
       );
     }
     return newGaskets;
@@ -124,10 +133,10 @@ function complexDescartes(c1, c2, c3, k4) {
   let center4 = sum.sub(root).scale(1 / k4[1]);
 
   return [
-    new GasketCircle(k4[0], center1.a, center1.b),
-    new GasketCircle(k4[0], center2.a, center2.b),
-    new GasketCircle(k4[1], center3.a, center3.b),
-    new GasketCircle(k4[1], center4.a, center4.b),
+    new GasketCircle(k4[0], center1.a, center1.b, this.col1),
+    new GasketCircle(k4[0], center2.a, center2.b, this.col1),
+    new GasketCircle(k4[1], center3.a, center3.b, this.col1),
+    new GasketCircle(k4[1], center4.a, center4.b, this.col1),
   ];
 }
 
@@ -143,14 +152,15 @@ function descartes(c1, c2, c3) {
 }
 
 class GasketCircle {
-  constructor(bend, x, y) {
+  constructor(bend, x, y, col) {
     this.center = new Complex(x, y);
     this.bend = bend;
     this.radius = abs(1 / this.bend);
+    this.col = col;
   }
 
-  show(c, sw) {
-    stroke(c);
+  show() {
+    stroke(this.col);
     let sw2 = map(this.radius, 0, width / 2, 1, 5);
     strokeWeight(sw2);
     noFill();
