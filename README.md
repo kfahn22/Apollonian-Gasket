@@ -27,7 +27,7 @@ Now, in the Apollonian gasket, we start with three circles inside a larger circl
 
 The cool thing about this theorem is that it applies not just to three circles but to any number of circles that are all tangent to each other. So as we keep adding smaller circles into the gaps, we can keep using Descartes' theorem to understand how they all fit together. It's named after the ancient Greek mathematician Apollonius, who was really good at studying shapes and curves.
 
-The [code](https://editor.p5js.org/codingtrain/sketches/zrq8KHXnO) for most of the versions is adapted from [Daniel Shiffman](https://thecodingtrain.com) -- Apollonian Coding Challenge coming soon!
+The [code](https://editor.p5js.org/codingtrain/sketches/zrq8KHXnO) for most of the versions is adapted from [Daniel Shiffman](https://thecodingtrain.com)'s [Apollonian Coding Challenge](https://thecodingtrain.com/challenges/182-apollonian-gasket).
 
 The code for the nested version is from [Richard Bourne](https://openprocessing.org/user/162823?view=sketches&o=48) (I have updated the syntax a little bit.) The python and circle inversion code sets actual pixels, so it can't be adapted like Daniel's code. The python code is from user [FB36](https://code.activestate.com/recipes/users/4172570/) posted in ActiveStateCode. I obtained the circle inversion code by posting the python code in ChatGPT3.5 and asking it to port to p5.js. It did a pretty decent job--I only had to modify the loop slightly.
 
@@ -74,7 +74,7 @@ The code for the nested version is from [Richard Bourne](https://openprocessing.
       <td align="center"><a href=""> <img class="img" src="assets/mix.jpg" alt="Apollonian gasket Steiner chains" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with Steiner chains</b></sub></a></td>
       <td align="center"><a href=https://editor.p5js.org/kfahn/sketches/GjCcOhd5v"> <img class="img" src="assets/logo.jpg" alt="Apollonian gasket with Coding Train logo" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with Coding Train logo</b></sub></a></td>
       <td align="center"><a href=""> <img class="img" src="assets/particles.jpg" alt="Apollonian gasket with Particle system" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with Particle System</b></sub></a></td>
-    <td align="center"><a href=""> <img class="img" src="assets/steiner-chain.jpg" alt="Steiner chain filled with gaskets" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Steiner chain filled with gaskets</b></sub></a></td>
+    <td align="center"><a href="https://editor.p5js.org/kfahn/sketches/-X8-rgtQd"> <img class="img" src="assets/steiner-chain.jpg" alt="Steiner chain filled with gaskets" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Steiner chain filled with gaskets</b></sub></a></td>
   </tr>
     
  </tbody>

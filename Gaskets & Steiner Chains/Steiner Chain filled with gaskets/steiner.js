@@ -1,7 +1,5 @@
 // https://github.com/CodingTrain/Logo-Animations/tree/main/public/gasketLogo
 
-//const epsilon = 0.1;
-
 function isTangent(c1, c2) {
   let d = c1.dist(c2);
   let r1 = c1.radius;
@@ -32,35 +30,43 @@ function validate(c4, c1, c2, c3, allCircles) {
 }
 
 class SteinerChain {
-  constructor(x, y, r, sw, color) {
+  constructor(r, x, y, n, fudge, color) {
     this.x = x;
     this.y = y;
     this.r = r;
     this.allCircles = [];
     this.queue = [];
-    this.n = 6;
-    let c1 = new GasketCircle(-1 / r, x, y);
-    let r2 = c1.radius / 3;
+    this.n = n;
+    this.fudge = fudge;
+    let c1 = new GasketCircle(-1 / this.r, this.x, this.y);
+    this.allCircles.push(c1);
+    let r2 = this.r * this.fudge;
     let v = p5.Vector.fromAngle(random(TWO_PI));
-    v.setMag(c1.radius - r2);
-    let c2 = new GasketCircle(1 / r2, x, y);
-    let r3 = v.mag() - r2;
-    this.allCircles.push(c1, c2);
-    //this.queue = [c1, c2];
+    v.setMag(this.r - r2);
+    let c2 = new GasketCircle(1 / r2, this.x, this.y);
+    let r3;
     for (let i = 0; i < this.n; i++) {
-      v.rotate(TWO_PI / this.n);
-      v.setMag(c1.radius - r3);
-      let c = new GasketCircle(1 / r3, x + v.x, y + v.y);
+      let theta = PI / this.n;
+      v.rotate((2 * PI) / this.n);
+      r3 = (r2 * sin(theta)) / (1 - sin(theta));
+      v.setMag(this.r - r3);
+
+      let c = new GasketCircle(1 / r3, this.x + v.x, this.y + v.y);
+
       this.allCircles.push(c);
       this.queue.push(c);
-      //console.log(this.queue);
     }
+    // let r2 = c1.radius - 2 * r3;
+    // v.setMag(c1.radius - r2);
+    // let c2 = new GasketCircle(1 / r2, this.x, this.y);
+    this.allCircles.push(c2);
+    this.queue.push(c2);
     this.color = color;
     this.recursed = false;
     this.startC = this.allCircles.shift();
-    
+
     //console.log(this.startC)
-    this.sw = sw;
+    this.sw = 3;
 
     let len = -1;
     while (this.allCircles.length !== len) {
@@ -75,20 +81,19 @@ class SteinerChain {
     let newChains = [];
     for (let i = 0; i < this.allCircles.length; i++) {
       let c = this.allCircles[i];
-      if (c.radius < 2) continue;
+      if (c.radius < 4) continue;
       newChains.push(
         new SteinerChain(
           c.center.a,
           c.center.b,
           c.radius,
-          this.sw / 16,
+          this.n,
+          this.adj,
           this.color
         )
       );
-      console.log(newChains);
     }
     return newChains;
-    
   }
 
   nextGeneration() {
@@ -96,25 +101,6 @@ class SteinerChain {
     nextQueue = nextQueue.concat(this.queue);
     this.queue = nextQueue;
   }
-
-  // nextGeneration() {
-  //   let nextQueue = [];
-  //   for (let triplet of this.queue) {
-  //     let [c1, c2, c3] = triplet;
-  //     let k4 = descartes(c1, c2, c3);
-  //     let newCircles = complexDescartes(c1, c2, c3, k4);
-  //     for (let newCircle of newCircles) {
-  //       if (validate(newCircle, c1, c2, c3, this.allCircles)) {
-  //         this.allCircles.push(newCircle);
-  //         let t1 = [c1, c2, newCircle];
-  //         let t2 = [c1, c3, newCircle];
-  //         let t3 = [c2, c3, newCircle];
-  //         nextQueue = nextQueue.concat([t1, t2, t3]);
-  //       }
-  //     }
-  //   }
-  //   this.queue = nextQueue;
-  // }
 
   show() {
     for (let c of this.allCircles) {
@@ -162,22 +148,24 @@ function descartes(c1, c2, c3) {
   return [sum + root, sum - root];
 }
 
-// class Circle {
-//   constructor(bend, x, y) {
-//     this.center = new Complex(x, y);
-//     this.bend = bend;
-//     this.radius = abs(1 / this.bend);
-//   }
+class ChainCircle {
+  constructor(bend, x, y) {
+    this.center = new Complex(x, y);
+    this.bend = bend;
+    this.radius = abs(1 / this.bend);
+  }
 
-//   show(c, sw) {
-//     stroke(c);
-//     let sw2 = map(this.radius, 0, width / 2, 1, 20);
-//     strokeWeight(sw2);
-//     noFill();
-//     circle(this.center.a, this.center.b, this.radius * 2);
-//   }
+  show(c, sw) {
+    stroke(c);
+    let sw2 = map(this.radius, 0, width / 2, 1, 5);
+    strokeWeight(sw2);
+    noFill();
+    line(width / 2, height / 2, this.center.a, this.center.b);
+    strokeWeight(10);
+    circle(this.center.a, this.center.b, this.radius * 2);
+  }
 
-//   dist(other) {
-//     return dist(this.center.a, this.center.b, other.center.a, other.center.b);
-//   }
-// }
+  dist(other) {
+    return dist(this.center.a, this.center.b, other.center.a, other.center.b);
+  }
+}

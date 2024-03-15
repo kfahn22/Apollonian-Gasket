@@ -1,3 +1,6 @@
+// Base code for the gasket from Daniel Shiffman's Apollonian Coding Challenge
+// https://thecodingtrain.com/challenges/182-apollonian-gasket
+
 let chains = [];
 let gaskets = [];
 let colorsCT = [
@@ -10,32 +13,28 @@ let colorsCT = [
   "#F89E4F",
   "#2DC5F4",
 ];
-// Adjustment factor for different number of initial circles
-// let dict = [
-//   { key: "3", value: "0.071" },
-//   { key: "4", value: "0.17" },
-//   { key: "5", value: "0.26" },
-//   { key: "6", value: "0.33" },
-//   { key: "7", value: "0.39" },
-//   { key: "8", value: "0.44" },
-//   { key: "9", value: "0.49" },
-//   { key: "10", value: "0.53" },
-//   { key: "11", value: "0.56" },
-//   { key: "12", value: "0.58" },
-// ];
+
+// Fudge factor for different number of initial circles
+let dict = {
+  3: 0.071,
+  4: 0.17,
+  5: 0.26,
+  6: 0.33,
+  7: 0.39,
+  8: 0.44,
+  9: 0.49,
+  10: 0.53,
+  11: 0.56,
+  12: 0.58,
+};
+
 function setup() {
   createCanvas(400, 400);
   let col = color("#2DC5F4");
-  // console.log(dict[key=="3"]);
+
   // r, x, y, n, adj, color
   chains.push(
-    new SteinerChain(
-      width / 2,
-      width / 2,
-      height / 2,
-      12,
-      col
-    )
+    new SteinerChain(width / 2, width / 2, height / 2, 8, dict["8"], col)
   );
 
   let circleArray = chains[0].allCircles;
