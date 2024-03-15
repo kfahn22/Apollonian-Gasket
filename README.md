@@ -40,40 +40,18 @@ The code for the nested version is from [Richard Bourne](https://openprocessing.
   <tbody>
     <tr>
       <td align="center"><a href=""> <img class="img" src="assets/apollonian-pentagons.jpg" alt="Apollonian gasket with 6 pentagons" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with polar pentagons</b></sub></a></td>
-      <td align="center"><a href=""> <img class="img" src="assets/apollonian-triangles.jpg" alt="Apollonian gasket with polar triangles" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with polar triangles</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/apollonian-phyllotaxis.jpg" alt="Apollonian gasket with Phyllotaxis" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Apollonian gasket with Phyllotaxis</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/apollonian-starburst.jpg" alt="Apollonian gasket with polar curve" style=" display: block;
-    margin-left: auto;
-    margin-right: auto;" width="500" /><br /><sub><b><br/></b>Apollonian gasket with polar curve</sub></a></td>
-    </tr>
-<tr>
-      <td align="center"><a href=""> <img class="img" src="assets/clocks.jpg" alt="Apollonian gasket with clocks" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with clocks</b></sub></a></td>
-      <td align="center"><a href=""> <img class="img" src="assets/apollonian-3d.jpg" alt="Circle Inversion with spheres" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with spheres</b></sub></a></td>
+      <td align="center"><a href=""> <img class="img" src="assets/apollonian-3d.jpg" alt="3D Apollonian gaskets" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with spheres</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/apollonian-gears.jpg" alt="Apollonian gasket with gears" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Apollonian gasket with gears</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/apollonian-polygon.jpg" alt="Apollonian gasket with polygons" style=" display: block;
-    margin-left: auto;
-    margin-right: auto;" width="500" /><br /><sub><b><br/>Apollonian gasket with polygons</b></sub></a></td>
-    </tr>
-
+</tr>
 <tr>
       <td align="center"><a href=""> <img class="img" src="assets/apollonian-chrysanthemum.jpg" alt="Apollonian gasket with flowers" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with flowers</b></sub></a></td>
       <td align="center"><a href=""> <img class="img" src="assets/apollonian-butterfly.jpg" alt="Apollonian gasket with butterflies" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with butterflies</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/apollonian-4circles.png" alt="Circle inversion with 4 initial circles" style=" display: block;
-    margin-left: auto;
-    margin-right: auto;" width="500" /><br /><sub><b><br/>Apollonian gasket with 4 initial circles</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/nested.jpg" alt="Nested Apollonian gasket" style=" display: block;
-    margin-left: auto;
-    margin-right: auto;" width="500" /><br /><sub><b><br/>Nested Apollonian gasket</b></sub></a></td>
-    </tr>
-
-  <tr>
-      <td align="center"><a href=""> <img class="img" src="assets/mix.jpg" alt="Apollonian gasket Steiner chains" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with Steiner chains</b></sub></a></td>
       <td align="center"><a href=https://editor.p5js.org/kfahn/sketches/GjCcOhd5v"> <img class="img" src="assets/logo.jpg" alt="Apollonian gasket with Coding Train logo" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with Coding Train logo</b></sub></a></td>
-      <td align="center"><a href=""> <img class="img" src="assets/particles.jpg" alt="Apollonian gasket with Particle system" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with Particle System</b></sub></a></td>
     <td align="center"><a href="https://editor.p5js.org/kfahn/sketches/-X8-rgtQd"> <img class="img" src="assets/steiner-chain.jpg" alt="Steiner chain filled with gaskets" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Steiner chain filled with gaskets</b></sub></a></td>
   </tr>
     
