@@ -30,14 +30,13 @@ function validate(c4, c1, c2, c3, allCircles) {
 }
 
 class SteinerChain {
-  constructor(r, x, y, n, fudge, color) {
+  constructor(r, x, y, n, color) {
     this.x = x;
     this.y = y;
     this.r = r;
     this.allCircles = [];
     this.queue = [];
-    this.n = 4;
-    this.fudge = fudge;
+    this.n = n;
     let c1 = new GasketCircle(-1 / this.r, this.x, this.y);
     this.allCircles.push(c1);
     let theta = PI / this.n;
