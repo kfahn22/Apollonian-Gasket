@@ -44,9 +44,9 @@ The code for the nested version is from [Richard Bourne](https://openprocessing.
     margin-left: auto;
     margin-right: auto;" width="500" /><br /><sub><b><br/>Apollonian gasket with Phyllotaxis</b></sub></a></td>
       <td align="center"><a href=""> <img class="img" src="assets/apollonian-3d.jpg" alt="3D Apollonian gaskets" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with spheres</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/apollonian-gears.jpg" alt="Apollonian gasket with gears" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="assets/filled-gasked.jpg" alt="Apollonian gasket with Steiner Chains" style=" display: block;
     margin-left: auto;
-    margin-right: auto;" width="500" /><br /><sub><b><br/>Apollonian gasket with gears</b></sub></a></td>
+    margin-right: auto;" width="500" /><br /><sub><b><br/>Apollonian gasket filled with Steiner Chains</b></sub></a></td>
 </tr>
 <tr>
       <td align="center"><a href=""> <img class="img" src="assets/apollonian-chrysanthemum.jpg" alt="Apollonian gasket with flowers" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with flowers</b></sub></a></td>
