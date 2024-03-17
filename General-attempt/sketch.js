@@ -1,6 +1,7 @@
 // Base code for the gasket from Daniel Shiffman's Apollonian Coding Challenge
 // https://thecodingtrain.com/challenges/182-apollonian-gasket
 
+let n = 9; // number of circles in Steiner chain
 let chains = [];
 let gaskets = [];
 let colorsCT = [
@@ -14,36 +15,18 @@ let colorsCT = [
   "#2DC5F4",
 ];
 
-// Fudge factor for different number of initial circles
-let dict = {
-  3: 0.071,
-  4: 0.17,
-  5: 0.26,
-  6: 0.33,
-  7: 0.39,
-  8: 0.44,
-  9: 0.49,
-  10: 0.53,
-  11: 0.56,
-  12: 0.58,
-};
-
 function setup() {
   createCanvas(400, 400);
   let col = color("#2DC5F4");
 
-  // r, x, y, n, adj, color
-  chains.push(
-    new SteinerChain(width / 2, width / 2, height / 2, 8, dict["8"], col)
-  );
+  // Add the circles for Steiner Chain
+  chains.push(new SteinerChain(width / 2, width / 2, height / 2, n, col));
 
   let circleArray = chains[0].allCircles;
   let len = circleArray.length;
   for (let i = 0; i < len; i++) {
     let c = circleArray[i];
-    //console.log(c);
-    // Replace a gasket with a chain
-
+    // Fill the circle with a gasket
     gaskets.push(
       new Gasket(c.center.a, c.center.b, c.radius, color("#2DC5F4"))
     );
@@ -64,12 +47,9 @@ function draw() {
 
   for (let gasket of gaskets) {
     gasket.show();
-    //gasket.nextGeneration();
   }
-  //translate(width/2, height/2)
   for (let chain of chains) {
     push();
-    //translate(chain.x, chain.y);
     chain.show();
     pop();
   }

@@ -1,11 +1,13 @@
 let n = 8;
+let ang = 0;
 let chains = [];
 let gaskets = [];
+let rotation = true;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(600, 600, WEBGL);
 
-  gaskets.push(new Gasket(width / 2, height / 2, height / 2, 3));
+  gaskets.push(new Gasket(0, 0, height / 2, 3));
 
   let circleArray = gaskets[0].allCircles;
   let len = circleArray.length;
@@ -15,7 +17,9 @@ function setup() {
     let c = circleArray[index];
 
     // Replace a gasket with a chain
-    chains.push(new SteinerChain(c.radius, c.center.a, c.center.b, 7));
+    chains.push(
+      new SteinerChain(c.radius, c.center.a, c.center.b, int(random(4, 12)))
+    );
     // Find original gasket and delete
     circleArray.splice(index, 1);
   }
@@ -39,13 +43,22 @@ function setup() {
 
 function draw() {
   background("#F89E4F");
-  for (let gasket of gaskets) {
-    gasket.show();
-  }
+  pixelDensity(1);
+  orbitControl();
+  rotateX(ang);
+  rotateY(ang);
+  rotateZ(ang);
+  //ambientLight("#F89E4F");
+
+  scale(0.5);
+
   for (let chain of chains) {
     push();
     chain.show();
     pop();
+  }
+  if (rotation) {
+    ang += 1;
   }
 }
 
