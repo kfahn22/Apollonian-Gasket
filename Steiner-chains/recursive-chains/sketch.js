@@ -15,28 +15,6 @@ function setup() {
     let c = new Chain(allCircles[i].r, allCircles[i].x, allCircles[i].y, n);
     addChains(c);
   }
-
-  // for (let i = allCircles.length - 1; i >= 1; i--) {
-  //   let newC = new Chain(allCircles[i].r, allCircles[i].x, allCircles[i].y, n);
-
-  //   queue = newC.queue;
-  //   for (let i = 0; i < queue.length; i++) {
-  //     allCircles.push(queue[i]);
-  //     newC.recurse(queue[i]);
-  //     console.log(allCircles.length);
-  //   }
-  // }
-
-  // for (let i = 1; i < allCircles.length; i++) {
-  //   let newC = new Chain(allCircles[i].r, allCircles[i].x, allCircles[i].y, n);
-
-  //   queue = newC.queue;
-  //   for (let i = 0; i < queue.length; i++) {
-  //     allCircles.push(queue[i]);
-  //     newC.recurse(queue[i]);
-  //     //console.log(allCircles.length)
-  //   }
-  // }
 }
 
 function draw() {

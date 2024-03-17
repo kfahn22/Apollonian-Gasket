@@ -55,33 +55,6 @@ class Chain {
     this.allCircles.push(c3);
     this.queue.push(c3);
     this.recursed = false;
-    // this.startC = this.allCircles.shift();
-
-    let len = -1;
-    while (this.allCircles.length !== len) {
-      len = this.allCircles.length;
-      this.nextGeneration();
-    }
-  }
-
-  recurse(c) {
-    if (this.recursed) return;
-    this.queue = [];
-    if (c.r > 10) {
-      let newChain = new Chain(c.r, c.x, c.y, this.n);
-      //console.log(newChain.queue);
-      this.queue = newChain.queue;
-      for (let j = 0; j < this.queue.length; j++) {
-        this.allCircles.push(this.queue[j]);
-        this.recurse(this.queue[j]);
-      }
-    }
-  }
-
-  nextGeneration() {
-    let nextQueue = [];
-    nextQueue = nextQueue.concat(this.queue);
-    this.queue = nextQueue;
   }
 
   show() {
@@ -99,8 +72,8 @@ class Circle {
   }
 
   show() {
-     let col = color(87, 83, 102);
-     let col2 = color(208, 256, 26); 
+    let col = color(87, 83, 102);
+    let col2 = color(208, 256, 26);
     let mycol = lerpColor(
       col,
       col2,
@@ -110,7 +83,6 @@ class Circle {
     fill(mycol);
     let sw = map(Math.log2(this.r), 3.4, Math.log2(50), 0.5, 2);
     strokeWeight(sw);
-    
     circle(this.x, this.y, 2 * this.r);
   }
 }

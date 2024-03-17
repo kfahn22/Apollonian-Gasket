@@ -1,5 +1,20 @@
 // https://github.com/CodingTrain/Logo-Animations/tree/main/public/gasketLogo
 
+let colorsCT = [
+  "#70327E",
+  "#9253A1",
+  "#A42963",
+  "#EC015A",
+  "#F063A4",
+  "#F16164",
+  "#F89E4F",
+  "#FCEE21",
+  "#66D334",
+  "#701616",
+  "#2DC5F4",
+  "#0B6A88",
+];
+
 const epsilon = 0.1;
 
 function isTangent(c1, c2) {
@@ -32,7 +47,7 @@ function validate(c4, c1, c2, c3, allCircles) {
 }
 
 class Gasket {
-  constructor(x, y, r, sw) {
+  constructor(x, y, r) {
     this.x = x;
     this.y = y;
     this.r = r;
@@ -50,8 +65,7 @@ class Gasket {
     this.allCircles = [c1, c2, c3];
     this.queue = [[c1, c2, c3]];
     this.recursed = false;
-    this.startC = [c2, c3];
-    this.sw = sw;
+    //this.startC = [c2, c3];
 
     let len = -1;
     while (this.allCircles.length !== len) {
@@ -95,7 +109,7 @@ class Gasket {
 
   show() {
     for (let c of this.allCircles) {
-      c.show(this.color, this.sw);
+      c.show();
     }
   }
 }
@@ -146,19 +160,17 @@ class GasketCircle {
     this.radius = abs(1 / this.bend);
   }
   show() {
-    let col = color(98, 59, 90);
-    let col2 = color(186,149,147);
+    let col = color(colorsCT[11]);
+    let col2 = color(colorsCT[6]);
 
-    // let col = color(87, 98, 213);
-    // let col2 = color(255, 105, 120);
     let mycol = lerpColor(
       col,
       col2,
       map(Math.log2(this.radius), 1, Math.log2(50), 1, 0)
     );
     //stroke(50, 41, 47, 200);
-    stroke(200,255,190, 200);
-    
+    stroke(color(colorsCT[2]), 200);
+
     let sw = map(Math.log2(this.radius), 1, Math.log2(50), 0.5, 2);
     strokeWeight(sw);
     fill(mycol);
