@@ -159,7 +159,7 @@ class GasketCircle {
   }
   show() {
     let col = color(87, 83, 102);
-    let col2 = color(208, 2566, 26); // yellow-green
+    let col2 = color(208, 256, 26); // yellow-green
    
     let mycol = lerpColor(
       col,

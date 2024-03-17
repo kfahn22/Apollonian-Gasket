@@ -1,7 +1,10 @@
-class Cirkles {
-  constructor(_c, _n) {
-    this.outer = _c;
+class Cirkle {
+  constructor(_r, _x, _y, _n) {
+    this.r = _r;
+    this.x = _x;
+    this.y = _y;
     this.n = _n;
+    this.outer = new Circle(this.r, this.x, this.y);
     this.allCircles = [];
     this.queue = [];
     this.epsilon = 0.1;
@@ -47,11 +50,11 @@ class Cirkles {
     // this.startC = this.allCircles.shift();
     // this.sw = 3;
 
-    let len = -1;
-    while (this.allCircles.length !== len) {
-      len = this.allCircles.length;
-      this.nextGeneration();
-    }
+   // let len = -1;
+    // while (this.allCircles.length !== len) {
+    //   len = this.allCircles.length;
+    //   this.nextGeneration();
+    // }
   }
 
   validate(c4, c1, c2, c3) {
