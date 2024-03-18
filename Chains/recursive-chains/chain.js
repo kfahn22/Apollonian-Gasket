@@ -1,5 +1,7 @@
 // This is probably not all necessary but planning to try to intergrate at some point
 
+// https://en.wikipedia.org/wiki/Steiner_chain
+
 function isTangent(c1, c2) {
   let d = c1.dist(c2);
   let r1 = c1.radius;
@@ -30,13 +32,13 @@ function validate(c4, c1, c2, c3, allCircles) {
 }
 
 class Chain {
-  constructor(r, x, y, n) {
-    this.x = x;
-    this.y = y;
-    this.r = r;
+  constructor(_r, _x, _y, _n) {
+    this.x = _x;
+    this.y = _y;
+    this.r = _r;
     this.allCircles = [];
     this.queue = [];
-    this.n = n;
+    this.n = _n;
     let c1 = new Circle(this.r, this.x, this.y);
     this.allCircles.push(c1);
     let theta = PI / this.n;

@@ -1,34 +1,3 @@
-// This is probably not all necessary but planning to try to intergrate at some point
-
-// function isTangent(c1, c2) {
-//   let d = c1.dist(c2);
-//   let r1 = c1.radius;
-//   let r2 = c2.radius;
-
-//   let a = abs(d - (r1 + r2)) < epsilon;
-//   let b = abs(d - abs(r2 - r1)) < epsilon;
-//   return a || b;
-// }
-
-// function validate(c4, c1, c2, c3, allCircles) {
-//   if (c4.radius < 2) return false;
-
-//   for (let other of allCircles) {
-//     let d = c4.dist(other);
-//     let radiusDiff = abs(c4.radius - other.radius);
-//     if (d < epsilon && radiusDiff < epsilon) {
-//       return false;
-//     }
-//   }
-
-//   // Check if all 4 circles are mututally tangential
-//   if (!isTangent(c4, c1)) return false;
-//   if (!isTangent(c4, c2)) return false;
-//   if (!isTangent(c4, c3)) return false;
-
-//   return true;
-// }
-
 class SteinerChain {
   constructor(r, x, y, n) {
     this.x = x;
