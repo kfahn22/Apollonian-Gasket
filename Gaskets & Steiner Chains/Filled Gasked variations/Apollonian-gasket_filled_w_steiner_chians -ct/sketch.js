@@ -47,6 +47,7 @@ function draw() {
     chain.show();
     pop();
   }
+  noLoop();
 }
 
 function mousePressed() {

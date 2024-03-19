@@ -1,27 +1,26 @@
 let n = 8;
 let allCircles = [];
 let queue = [];
-let factor = 400;
-let canvas
+let gradient;
+
 function setup() {
-  createCanvas(1, 1);
-  W = width * factor; 
-  H = height * factor;
-  canvas = createGraphics(W, H);
+  createCanvas(400, 400);
+  gradient = createRadialGradient(0, 100);
   let c = new Chain(width / 2, height / 2, height / 2, n);
   let circleArray = c.allCircles;
   for (let i = 0; i < circleArray.length; i++) {
     allCircles.push(circleArray[i]);
   }
-  //console.log(allCircles)
+
   for (let i = allCircles.length - 1; i >= 1; i--) {
     let c = new Chain(allCircles[i].r, allCircles[i].x, allCircles[i].y, n);
-    //addChains(c);
+    addChains(c);
   }
 }
 
 function draw() {
-  canvas.background(50, 41, 47);
+  //background(97, 48, 75);
+  background(247, 153, 110);
   //console.log(allCircles);
   for (let c of allCircles) {
     c.show();

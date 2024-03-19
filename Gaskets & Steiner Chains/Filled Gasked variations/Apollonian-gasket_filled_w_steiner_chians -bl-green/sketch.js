@@ -38,7 +38,7 @@ function setup() {
 }
 
 function draw() {
-  background(50,41,47)
+  background(50, 41, 47);
   for (let gasket of gaskets) {
     gasket.show();
   }
@@ -47,6 +47,7 @@ function draw() {
     chain.show();
     pop();
   }
+  noLoop();
 }
 
 function mousePressed() {

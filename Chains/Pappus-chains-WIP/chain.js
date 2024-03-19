@@ -40,10 +40,10 @@ class Chain {
     this.n = _n;
     let c1 = new Circle(this.r, this.x, this.y);
     // this.allCircles.push(c1);
-    let r2 = random(c1.r / 4, c1.r / 2);
+    let r2 = c1.r/2;//random(c1.r / 4, c1.r / 2);
     let v = p5.Vector.fromAngle(random(TWO_PI));
     v.setMag(c1.r - r2);
-    let c2 = new Circle(r2, this.x + v.x, this.y + v.y);
+    let c2 = new Circle(r2, this.x+v.x, this.y + v.y);
     this.queue.push(c2);
     this.allCircles = [c1, c2];
     // r is ratio of diameter of enclosed circle to diameter of outer (unit) circle
@@ -55,8 +55,9 @@ class Chain {
       let x = ((1 + r) * r) / (2 * (pow(i, 2) * pow(1 - r, 2) + r));
       let y = ((1 + r) * i * r) / (pow(i, 2) * pow(1 - r, 2) + r);
       let rn = (((1 - r) * r) / 2) * (pow(i, 2) * pow(1 - r, 2) + r);
-      let v = createVector(x, y);
-      v.setMag(c1.r);
+      //console.log(rn*2*c1.r)
+      //let v = createVector(x, y);
+      //v.setMag(c1.r);
       let c = new Circle(rn, x, y);
       this.allCircles.push(c);
       this.queue.push(c);

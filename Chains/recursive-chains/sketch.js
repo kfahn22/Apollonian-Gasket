@@ -23,6 +23,7 @@ function draw() {
   for (let c of allCircles) {
     c.show();
   }
+  noLoop();
 }
 
 function mousePressed() {
