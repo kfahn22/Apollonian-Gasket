@@ -63,17 +63,19 @@ class Circle {
     let mycol = lerpColor(
       col,
       col2,
-      map(Math.log2(this.radius), 3.4, Math.log2(30), 1, 0)
+      map(Math.log2(this.radius), 3.4, Math.log2(100), 1, 0)
     );
     let sw = map(Math.log2(this.radius), 3.4, Math.log2(100), 1, 3);
-    stroke(mycol);
+    //stroke(mycol);
+    stroke(0);
     strokeWeight(sw);
     if (!fillCircle) {
       noFill();
       circle(this.center.a, this.center.b, this.radius * 2);
     } else {
+      stroke(0);
       fill(mycol);
-      circle(this.center.a, this.center.b, this.radius * 1.8);
+      circle(this.center.a, this.center.b, this.radius * 1.95);
     }
   }
 

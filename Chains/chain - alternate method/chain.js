@@ -42,16 +42,16 @@ class Chain {
     this.n = _n;
     this.d = _d;
     this.r = _r;
-    let rnew = this.r / (pow(this.r, 2) - pow(this.d, 2));
-     console.log(rnew);
+    // let rnew = this.r / (pow(this.r, 2) - pow(this.d, 2));
+    //  console.log(rnew);
     let c1 = new Circle(this.r, this.x, this.y);
     this.allCircles.push(c1);
     let theta = PI / this.n;
     // central circle
     let r2 = this.r * ((1 - sin(theta)) / (1 + sin(theta)));
-    let r2new = abs(r2 / (pow(this.d, 2) - pow(this.r2, 2)));
+    // let r2new = abs(r2 / (pow(this.d, 2) - pow(this.r2, 2)));
     let v = p5.Vector.fromAngle(random(TWO_PI));
-    let c2 = new Circle(r2new, this.x, this.y);
+    let c2 = new Circle(r2, this.x, this.y);
     this.allCircles.push(c2);
     this.queue.push(c2);
     // smaller circles

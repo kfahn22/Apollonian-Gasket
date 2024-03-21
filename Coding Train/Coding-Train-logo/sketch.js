@@ -3,6 +3,10 @@ let queue = [];
 let epsilon = 0.01;
 let fillCircle = false;
 
+function mousePressed() {
+  save("logo.jpg");
+}
+
 function setup() {
   createCanvas(600, 600);
 
