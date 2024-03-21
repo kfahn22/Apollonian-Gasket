@@ -52,7 +52,7 @@ The code for the nested version is from [Richard Bourne](https://openprocessing.
       <td align="center"><a href=""> <img class="img" src="assets/apollonian-chrysanthemum.jpg" alt="Apollonian gasket with flowers" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with flowers</b></sub></a></td>
       <td align="center"><a href=""> <img class="img" src="assets/apollonian-butterfly.jpg" alt="Apollonian gasket with butterflies" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with butterflies</b></sub></a></td>
       <td align="center"><a href=https://editor.p5js.org/kfahn/sketches/GjCcOhd5v"> <img class="img" src="assets/logo.jpg" alt="Apollonian gasket with Coding Train logo" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Apollonian gasket with Coding Train logo</b></sub></a></td>
-    <td align="center"><a href="https://editor.p5js.org/kfahn/sketches/-X8-rgtQd"> <img class="img" src="assets/annualar-chain.jpg" alt="Steiner chain filled with gaskets" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Annu;ar chain filled with gaskets</b></sub></a></td>
+    <td align="center"><a href="https://editor.p5js.org/kfahn/sketches/-X8-rgtQd"> <img class="img" src="assets/filled-chain.jpg" alt="Steiner chain filled with gaskets" style="vertical-align:top;" width="500" /><br /><sub><b><br/>Annular chain filled with gaskets</b></sub></a></td>
   </tr>
     
  </tbody>
