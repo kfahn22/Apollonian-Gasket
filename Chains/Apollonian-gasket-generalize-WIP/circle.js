@@ -13,10 +13,10 @@ class Circle {
       col2,
       map(Math.log2(this.radius), 3.4, Math.log2(100), 1, 0)
     );
-    //stroke(252, 238, 33);
-    stroke(0)
+    stroke(252, 238, 33);
+    //stroke(0)
     strokeWeight(1);
-    //fill(col);
+    fill(col);
     circle(this.center.a, this.center.b, this.radius * 2);
   }
 
