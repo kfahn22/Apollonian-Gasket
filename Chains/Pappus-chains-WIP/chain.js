@@ -37,30 +37,52 @@ class Chain {
     this.r = _r;
     this.allCircles = [];
     this.queue = [];
-    this.n = _n;
+    this.n = 8;
     let c1 = new Circle(this.r, this.x, this.y);
+
     // this.allCircles.push(c1);
-    let r2 = c1.r/2;//random(c1.r / 4, c1.r / 2);
-    let v = p5.Vector.fromAngle(random(TWO_PI));
+    let r2 = c1.r * 0.666; //random(c1.r / 4, c1.r / 2);
+    //console.log(c1.r, r2);
+    let v = p5.Vector.fromAngle(PI);
     v.setMag(c1.r - r2);
-    let c2 = new Circle(r2, this.x+v.x, this.y + v.y);
+    let c2 = new Circle(r2, this.x + v.x, this.y + v.y);
     this.queue.push(c2);
     this.allCircles = [c1, c2];
     // r is ratio of diameter of enclosed circle to diameter of outer (unit) circle
     // not sure how to scale properly
     // https://en.wikipedia.org/wiki/Pappus_chain
-    let r = r2 / c1.r;
-    //let r = 2/3 * c1.r;
-    for (let i = 0; i < n; i++) {
+
+    //let r3 = c1.r - c2.r;
+    let r3 = v.mag();
+    v.rotate(PI);
+    v.setMag(c1.r - r3);
+    let c3 = new Circle(r3, this.x + v.x, this.y + v.y);
+    this.queue.push(c3);
+    this.allCircles.push(c3);
+
+    // try to find another circle
+    v.setMag(c1.r - r2);
+    // let r4 = v.mag();
+    // v.rotate(-PI/this.n);
+    // v.setMag(c1.r - r4);
+    // let c4 = new Circle(r4, this.x + v.x, this.y + v.y);
+    // this.queue.push(c4);
+    // this.allCircles.push(c4);
+
+    let r = r2 / (2 * c1.r);
+    //console.log(r); // 0.33
+    // //let r = 2/3 * c1.r;
+    for (let i = 0; i < this.n; i++) {
       let x = ((1 + r) * r) / (2 * (pow(i, 2) * pow(1 - r, 2) + r));
       let y = ((1 + r) * i * r) / (pow(i, 2) * pow(1 - r, 2) + r);
       let rn = (((1 - r) * r) / 2) * (pow(i, 2) * pow(1 - r, 2) + r);
-      //console.log(rn*2*c1.r)
-      //let v = createVector(x, y);
-      //v.setMag(c1.r);
-      let c = new Circle(rn, x, y);
-      this.allCircles.push(c);
-      this.queue.push(c);
+    //console.log(width * rn)
+    let v = createVector(x, y);
+    v.setMag(rn);
+    console.log(width* x, height * y)
+    let c = new Circle(width*rn, width*x, height*y);
+    this.allCircles.push(c);
+    this.queue.push(c);
     }
 
     // this.allCircles = [c1, c2, c3];

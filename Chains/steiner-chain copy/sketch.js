@@ -1,42 +1,32 @@
+// Number of circles in the chain
 let n = 8;
+// Offset of central circle from center of outer circle
+let d = 1;
 let allCircles = [];
 let queue = [];
-//let factor = 400;
-//let canvas
+
 function setup() {
   createCanvas(400, 400);
-  // W = width * factor;
-  // H = height * factor;
-  // canvas = createGraphics(W, H);
-  let c = new Chain(width / 2, height / 2, height / 2, n);
+
+  let c = new Chain(width / 2, height / 2, height / 2, n, d);
   let circleArray = c.allCircles;
   for (let i = 0; i < circleArray.length; i++) {
     allCircles.push(circleArray[i]);
   }
-  //console.log(allCircles)
+
   for (let i = allCircles.length - 1; i >= 1; i--) {
     let c = new Chain(allCircles[i].r, allCircles[i].x, allCircles[i].y, n);
-    //addChains(c);
+    addChains(c);
   }
 }
 
 function draw() {
   background(50, 41, 47);
-  //console.log(allCircles);
-  for (let i = 0; i < 5; i++) {
-    allCircles[i].show();
+  console.log(allCircles);
+  for (let c of allCircles) {
+    c.show();
   }
-
-  let r2 = allCircles[1].r;
-  let r3 = allCircles[2].r;
-  let elllipseD = 4 * r2 + 2 * r3;
-  let Erw = 2 * r2 + r3;
-  ellipse(Erw / 2, height / 2, Erw, Erw);
-  line(0, height / 2, width, height / 2);
-  //ellipse()
-  // for (let c of allCircles) {
-  //   c.show();
-  // }
+  noLoop();
 }
 
 function mousePressed() {
