@@ -1,10 +1,10 @@
-let n = 8;
+let n = 9;
 let allCircles = [];
 let queue = [];
 let gradient;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(600, 600);
   gradient = createRadialGradient(0, 100);
   let c = new Chain(width / 2, height / 2, height / 2, n);
   let circleArray = c.allCircles;

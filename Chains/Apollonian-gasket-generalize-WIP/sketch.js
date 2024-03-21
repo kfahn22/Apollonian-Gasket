@@ -6,8 +6,9 @@ let col1, col2;
 
 function setup() {
   createCanvas(800, 800);
-  col1 = color(112, 50, 126);
-  col2 = color(45, 197, 244);
+
+  col1 = color(113, 47, 121);
+  col2 = color(247, 153, 110);
 
   seed = int(random(100000));
   //console.log(seed);
@@ -23,10 +24,7 @@ function setup() {
 }
 
 function draw() {
-  background("#F89E4F");
-  // for (let i = 0; i < 5; i++) {
-  //   gaskets[i].show();
-  // }
+  background(151, 99, 145);
 
   for (let gasket of gaskets) {
     gasket.show();
