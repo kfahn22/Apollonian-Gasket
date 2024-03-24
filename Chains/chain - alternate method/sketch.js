@@ -1,5 +1,5 @@
 // Number of circles in the chain
-let n = 8;
+let n = 6;
 // Offset of central circle from center of outer circle
 let d = 1;
 let allCircles = [];
@@ -22,7 +22,7 @@ function setup() {
 
 function draw() {
   background(50, 41, 47);
-  console.log(allCircles);
+  //console.log(allCircles);
   for (let c of allCircles) {
     c.show();
   }

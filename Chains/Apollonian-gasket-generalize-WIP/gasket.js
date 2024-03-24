@@ -31,33 +31,18 @@ function validate(c4, c1, c2, c3, allCircles) {
 }
 
 class Gasket {
-  constructor(x, y, r, color, seed, n) {
+  constructor(x, y, color, seed, n) {
     randomSeed(seed);
     this.allCircles = [];
     this.queue = [];
-    this.n = n;
-    this.d = 0;
-    let c1 = new Circle(-1 / r, x, y, index);
-    this.allCircles.push(c1);
-    //
-    let theta = PI / this.n;
-    // central circle
-    let r2 = c1.radius * ((1 - sin(theta)) / (1 + sin(theta)));
-    // let v = p5.Vector.fromAngle(0); //random(TWO_PI));
-    // v.setMag(this.d);
-    let v = p5.Vector.fromAngle(random(TWO_PI));
-    let c2 = new Circle(1 / r2, c1.center.a, c1.center.b, index);
-    this.allCircles.push(c2);
-    this.queue.push(c2);
-    // smaller circles
-    let r3 = 0.5 * (c1.radius - r2);
-    for (let i = 0; i < this.n; i++) {
-      v.rotate(TWO_PI / this.n);
-      v.setMag(c1.radius - r3);
-      let c = new Circle(1 / r3, c1.center.a + v.x, c1.center.b + v.y, index);
-      this.allCircles.push(c);
-      this.queue.push(c);
-    }
+    c1 = new Circle(-1 / r, x, y, index);
+    let r2 = c1.radius * 0.25; //random(c1.radius / 4, c1.radius / 2);
+    //console.log(c1);
+    let v = p5.Vector.fromAngle(random(TWO_PI)); //random(TWO_PI));
+    v.setMag(c1.radius - r2);
+    c2 = new Circle(1 / r2, x + v.x, y + v.y, index);
+    this.allCircles = [c1, c2];
+    //this.queue = [[c1, c2]];
     this.color = color;
     this.recursed = false;
     //this.startC = [c1, c2, c3];
@@ -69,15 +54,49 @@ class Gasket {
     }
   }
 
+  gasket(c1, c2) {
+    // let v = p5.Vector.fromAngle(0); //random(TWO_PI));
+    // v.setMag(c1.radius - c2.radius);
+    let v = p5.Vector.fromAngle(0); //random(TWO_PI));
+    let r3 = v.mag();
+    v.rotate(PI);
+    v.setMag(c1.radius - r3);
+    let c = new Circle(1 / r3, x + v.x, y + v.y, index);
+    this.queue = [[c1, c2, c3]];
+    return this.queue;
+  }
+
+  chainCircle(c1, c2, n) {
+    let theta = PI / n;
+    //this.d = 0;
+    let r3 = 0.5 * (c1.radius - c2.radius);
+    //for (let i = 0; i < this.n; i++) {
+    v.rotate(TWO_PI / n);
+    v.setMag(c1.radius - r3);
+    let c = new Circle(1 / r3, c1.center.a + v.x, c1.center.b + v.y, index);
+    this.queue = [[c1, c2, c3]];
+    return this.queue;
+  }
+
   recurse() {
     if (this.recursed) return;
     this.recursed = true;
     let newGaskets = [];
     for (let i = 1; i < this.allCircles.length; i++) {
       let c = this.allCircles[i];
+      // TODO: edit this
+      let r2 = c.radius * ((1 - sin(this.theta)) / (1 + sin(this.theta)));
       if (c.radius < 2) continue;
       newGaskets.push(
-        new Gasket(c.center.a, c.center.b, c.radius, this.sw / 16, this.color, this.n)
+        new Gasket(
+          c.center.a,
+          c.center.b,
+          c.radius,
+          r2,
+          this.sw / 16,
+          this.color,
+          this.n
+        )
       );
     }
     return newGaskets;
